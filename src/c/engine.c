@@ -381,6 +381,7 @@ int init_engine()
     ctxList_init();
     rt = JS_NewRuntime();
     JS_SetMaxStackSize(rt, 1024 * 800); // 1MB JS调用栈深度限制（软件计数，非系统栈分配）
+    // 不设 memory limit / GC threshold (use defaults)
     js_std_init_handlers(rt);
     js_std_set_worker_new_context_func(JS_GetContext);
     JS_SetModuleLoaderFunc2(rt, NULL, js_module_loader, js_module_check_attributes, NULL);

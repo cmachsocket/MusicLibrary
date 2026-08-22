@@ -76,10 +76,10 @@ const rank_list = require('@kuGouMusicApi/module/rank_list.js');
 const rank_info = require('@kuGouMusicApi/module/rank_info.js');
 const rank_audio = require('@kuGouMusicApi/module/rank_audio.js');
 const privilege_lite = require('@kuGouMusicApi/module/privilege_lite.js');
-const playlist_track_all_new = require('@kuGouMusicApi/module/playlist_track_all_new.js');
-const playlist_track_all = require('@kuGouMusicApi/module/playlist_track_all.js');
 const playlist_tracks_del = require('@kuGouMusicApi/module/playlist_tracks_del.js');
 const playlist_tracks_add = require('@kuGouMusicApi/module/playlist_tracks_add.js');
+const playlist_track_all_new = require('@kuGouMusicApi/module/playlist_track_all_new.js');
+const playlist_track_all = require('@kuGouMusicApi/module/playlist_track_all.js');
 const playlist_tags = require('@kuGouMusicApi/module/playlist_tags.js');
 const playlist_similar = require('@kuGouMusicApi/module/playlist_similar.js');
 const playlist_effect = require('@kuGouMusicApi/module/playlist_effect.js');
@@ -231,10 +231,10 @@ module.exports = [
   { identifier: 'rank_info', route: '/rank/info', module: rank_info },
   { identifier: 'rank_audio', route: '/rank/audio', module: rank_audio },
   { identifier: 'privilege_lite', route: '/privilege/lite', module: privilege_lite },
-  { identifier: 'playlist_track_all_new', route: '/playlist/track/all/new', module: playlist_track_all_new },
-  { identifier: 'playlist_track_all', route: '/playlist/track/all', module: playlist_track_all },
   { identifier: 'playlist_tracks_del', route: '/playlist/tracks/del', module: playlist_tracks_del },
   { identifier: 'playlist_tracks_add', route: '/playlist/tracks/add', module: playlist_tracks_add },
+  { identifier: 'playlist_track_all_new', route: '/playlist/track/all/new', module: playlist_track_all_new },
+  { identifier: 'playlist_track_all', route: '/playlist/track/all', module: playlist_track_all },
   { identifier: 'playlist_tags', route: '/playlist/tags', module: playlist_tags },
   { identifier: 'playlist_similar', route: '/playlist/similar', module: playlist_similar },
   { identifier: 'playlist_effect', route: '/playlist/effect', module: playlist_effect },

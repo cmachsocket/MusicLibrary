@@ -457,6 +457,11 @@ int tss_set(tss_t key, void *val);
   } once_flag;
   #define ONCE_FLAG_INIT {0,}
 #else
+  /* Undefine in case glibc 2.34+ already pulled these in transitively
+   * (via <stdlib.h> -> <bits/types/once_flag.h>) before tinycthread.h. */
+  #undef once_flag
+  #undef call_once
+  #undef ONCE_FLAG_INIT
   #define once_flag pthread_once_t
   #define ONCE_FLAG_INIT PTHREAD_ONCE_INIT
 #endif
@@ -474,6 +479,18 @@ int tss_set(tss_t key, void *val);
 
 #ifdef __cplusplus
 }
+#endif
+
+/* Undefine once_flag / call_once / ONCE_FLAG_INIT macros after the header
+ * finishes so that subsequent standard headers (e.g. <stdlib.h> on glibc 2.34+)
+ * don't accidentally re-typedef pthread_once_t via <bits/types/once_flag.h>
+ * (which has `typedef __once_flag once_flag;` — the macro expansion would turn
+ * that into `typedef __once_flag pthread_once_t;`, conflicting with the
+ * `typedef int pthread_once_t;` already declared by <pthread.h>). */
+#if defined(_TTHREAD_POSIX_)
+  #undef once_flag
+  #undef call_once
+  #undef ONCE_FLAG_INIT
 #endif
 
 #endif /* _TINYTHREAD_H_ */

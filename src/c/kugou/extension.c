@@ -175,14 +175,14 @@ API_FUNC(rank_audio, "/rank/audio")
 API_FUNC_NOENV(rank_audio_simple, "/rank/audio")
 API_FUNC(privilege_lite, "/privilege/lite")
 API_FUNC_NOENV(privilege_lite_simple, "/privilege/lite")
-API_FUNC(playlist_track_all_new, "/playlist/track/all/new")
-API_FUNC_NOENV(playlist_track_all_new_simple, "/playlist/track/all/new")
-API_FUNC(playlist_track_all, "/playlist/track/all")
-API_FUNC_NOENV(playlist_track_all_simple, "/playlist/track/all")
 API_FUNC(playlist_tracks_del, "/playlist/tracks/del")
 API_FUNC_NOENV(playlist_tracks_del_simple, "/playlist/tracks/del")
 API_FUNC(playlist_tracks_add, "/playlist/tracks/add")
 API_FUNC_NOENV(playlist_tracks_add_simple, "/playlist/tracks/add")
+API_FUNC(playlist_track_all_new, "/playlist/track/all/new")
+API_FUNC_NOENV(playlist_track_all_new_simple, "/playlist/track/all/new")
+API_FUNC(playlist_track_all, "/playlist/track/all")
+API_FUNC_NOENV(playlist_track_all_simple, "/playlist/track/all")
 API_FUNC(playlist_tags, "/playlist/tags")
 API_FUNC_NOENV(playlist_tags_simple, "/playlist/tags")
 API_FUNC(playlist_similar, "/playlist/similar")
@@ -484,14 +484,14 @@ KugouAPI *create_kugou_api(){
     api->rank_audio_simple = rank_audio_simple;
     api->privilege_lite = privilege_lite;
     api->privilege_lite_simple = privilege_lite_simple;
-    api->playlist_track_all_new = playlist_track_all_new;
-    api->playlist_track_all_new_simple = playlist_track_all_new_simple;
-    api->playlist_track_all = playlist_track_all;
-    api->playlist_track_all_simple = playlist_track_all_simple;
     api->playlist_tracks_del = playlist_tracks_del;
     api->playlist_tracks_del_simple = playlist_tracks_del_simple;
     api->playlist_tracks_add = playlist_tracks_add;
     api->playlist_tracks_add_simple = playlist_tracks_add_simple;
+    api->playlist_track_all_new = playlist_track_all_new;
+    api->playlist_track_all_new_simple = playlist_track_all_new_simple;
+    api->playlist_track_all = playlist_track_all;
+    api->playlist_track_all_simple = playlist_track_all_simple;
     api->playlist_tags = playlist_tags;
     api->playlist_tags_simple = playlist_tags_simple;
     api->playlist_similar = playlist_similar;

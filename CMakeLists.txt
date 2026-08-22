@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.21)
-project(MusicLibrary VERSION 1.0.0 LANGUAGES C)
+project(MusicLibrary VERSION 1.0.0 LANGUAGES C CXX)
 
 # ========== 子库构建开关 ==========
 # 默认全开,保持原有 Windows / Linux 桌面构建行为不变。
@@ -81,7 +81,7 @@ set(ENGINE_LIB_SOURCES
 # ========== INTERFACE 库 - 存放公共配置 ==========
 add_library(engine_config INTERFACE)
 target_include_directories(engine_config INTERFACE
-    # $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/quickjs>
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/quickjs>
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src/include>
     # $<INSTALL_INTERFACE:include>
 )
@@ -213,4 +213,14 @@ if(MUSICLIBRARY_BUILD_NCM)
         )
         target_compile_definitions(ncm_music_api PUBLIC KUGOU_MUSIC_API_EXPORTS)
     endif()
+endif()
+
+# ========== Tests ==========
+# 只在显式打开 BUILD_TESTING 时才 build (默认 OFF,避免污染 release build)
+option(MUSICLIBRARY_BUILD_TESTS "Build host tests (console)" OFF)
+mark_as_advanced(MUSICLIBRARY_BUILD_TESTS)
+
+if(MUSICLIBRARY_BUILD_TESTS)
+    enable_testing()
+    add_subdirectory(tests)
 endif()

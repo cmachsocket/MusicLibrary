@@ -1,0 +1,2349 @@
+
+---
+events:
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineSystem.cmake:12 (find_program)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_UNAME"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "uname"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/local/bin/"
+      - "/home/cmach_socket/.local/bin/"
+      - "/home/cmach_socket/.npm-global/bin/"
+      - "/home/cmach_socket/bin/"
+      - "/home/cmach_socket/.nix-profile/bin/"
+      - "/home/cmach_socket/.yarn/bin/"
+      - "/usr/local/sbin/"
+      - "/opt/android-ndk/"
+      - "/opt/android-sdk/cmdline-tools/latest/bin/"
+      - "/opt/android-sdk/platform-tools/"
+      - "/opt/android-sdk/tools/"
+      - "/opt/android-sdk/tools/bin/"
+      - "/opt/cuda/bin/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/usr/lib/rustup/bin/"
+    found: "/usr/bin/uname"
+    search_context:
+      ENV{PATH}:
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/local/bin"
+        - "/home/cmach_socket/.local/bin"
+        - "/home/cmach_socket/.npm-global/bin"
+        - "/home/cmach_socket/bin"
+        - "/home/cmach_socket/.nix-profile/bin"
+        - "/home/cmach_socket/.yarn/bin"
+        - "/usr/local/sbin"
+        - "/opt/android-ndk"
+        - "/opt/android-sdk/cmdline-tools/latest/bin"
+        - "/opt/android-sdk/platform-tools"
+        - "/opt/android-sdk/tools"
+        - "/opt/android-sdk/tools/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/usr/lib/rustup/bin"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineSystem.cmake:218 (message)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      The system is: Linux - 7.1.8-zen1-3-zen - x86_64
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeUnixFindMake.cmake:5 (find_program)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_MAKE_PROGRAM"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "gmake"
+      - "make"
+      - "smake"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/local/bin/"
+      - "/home/cmach_socket/.local/bin/"
+      - "/home/cmach_socket/.npm-global/bin/"
+      - "/home/cmach_socket/bin/"
+      - "/home/cmach_socket/.nix-profile/bin/"
+      - "/home/cmach_socket/.yarn/bin/"
+      - "/usr/local/sbin/"
+      - "/opt/android-ndk/"
+      - "/opt/android-sdk/cmdline-tools/latest/bin/"
+      - "/opt/android-sdk/platform-tools/"
+      - "/opt/android-sdk/tools/"
+      - "/opt/android-sdk/tools/bin/"
+      - "/opt/cuda/bin/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/usr/lib/rustup/bin/"
+    searched_directories:
+      - "/usr/bin/gmake"
+      - "/bin/gmake"
+      - "/usr/local/bin/gmake"
+      - "/home/cmach_socket/.local/bin/gmake"
+      - "/home/cmach_socket/.npm-global/bin/gmake"
+      - "/home/cmach_socket/bin/gmake"
+      - "/home/cmach_socket/.nix-profile/bin/gmake"
+      - "/home/cmach_socket/.yarn/bin/gmake"
+      - "/usr/local/sbin/gmake"
+      - "/opt/android-ndk/gmake"
+      - "/opt/android-sdk/cmdline-tools/latest/bin/gmake"
+      - "/opt/android-sdk/platform-tools/gmake"
+      - "/opt/android-sdk/tools/gmake"
+      - "/opt/android-sdk/tools/bin/gmake"
+      - "/opt/cuda/bin/gmake"
+      - "/usr/lib/jvm/default/bin/gmake"
+      - "/usr/bin/site_perl/gmake"
+      - "/usr/bin/vendor_perl/gmake"
+      - "/usr/bin/core_perl/gmake"
+      - "/usr/lib/rustup/bin/gmake"
+    found: "/usr/bin/make"
+    search_context:
+      ENV{PATH}:
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/local/bin"
+        - "/home/cmach_socket/.local/bin"
+        - "/home/cmach_socket/.npm-global/bin"
+        - "/home/cmach_socket/bin"
+        - "/home/cmach_socket/.nix-profile/bin"
+        - "/home/cmach_socket/.yarn/bin"
+        - "/usr/local/sbin"
+        - "/opt/android-ndk"
+        - "/opt/android-sdk/cmdline-tools/latest/bin"
+        - "/opt/android-sdk/platform-tools"
+        - "/opt/android-sdk/tools"
+        - "/opt/android-sdk/tools/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/usr/lib/rustup/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineCompiler.cmake:73 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:64 (_cmake_find_compiler)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_C_COMPILER"
+    description: "C compiler"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "cc"
+      - "gcc"
+      - "cl"
+      - "bcc"
+      - "xlc"
+      - "icx"
+      - "clang"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/local/bin/"
+      - "/home/cmach_socket/.local/bin/"
+      - "/home/cmach_socket/.npm-global/bin/"
+      - "/home/cmach_socket/bin/"
+      - "/home/cmach_socket/.nix-profile/bin/"
+      - "/home/cmach_socket/.yarn/bin/"
+      - "/usr/local/sbin/"
+      - "/opt/android-ndk/"
+      - "/opt/android-sdk/cmdline-tools/latest/bin/"
+      - "/opt/android-sdk/platform-tools/"
+      - "/opt/android-sdk/tools/"
+      - "/opt/android-sdk/tools/bin/"
+      - "/opt/cuda/bin/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/usr/lib/rustup/bin/"
+    found: "/usr/bin/cc"
+    search_context:
+      ENV{PATH}:
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/local/bin"
+        - "/home/cmach_socket/.local/bin"
+        - "/home/cmach_socket/.npm-global/bin"
+        - "/home/cmach_socket/bin"
+        - "/home/cmach_socket/.nix-profile/bin"
+        - "/home/cmach_socket/.yarn/bin"
+        - "/usr/local/sbin"
+        - "/opt/android-ndk"
+        - "/opt/android-sdk/cmdline-tools/latest/bin"
+        - "/opt/android-sdk/platform-tools"
+        - "/opt/android-sdk/tools"
+        - "/opt/android-sdk/tools/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/usr/lib/rustup/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:501 (find_file)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:538 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCCompilerId.c.in"
+    candidate_directories:
+      - "/usr/share/cmake/Modules/"
+    found: "/usr/share/cmake/Modules/CMakeCCompilerId.c.in"
+    search_context:
+      ENV{PATH}:
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/local/bin"
+        - "/home/cmach_socket/.local/bin"
+        - "/home/cmach_socket/.npm-global/bin"
+        - "/home/cmach_socket/bin"
+        - "/home/cmach_socket/.nix-profile/bin"
+        - "/home/cmach_socket/.yarn/bin"
+        - "/usr/local/sbin"
+        - "/opt/android-ndk"
+        - "/opt/android-sdk/cmdline-tools/latest/bin"
+        - "/opt/android-sdk/platform-tools"
+        - "/opt/android-sdk/tools"
+        - "/opt/android-sdk/tools/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/usr/lib/rustup/bin"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler: /usr/bin/cc 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+      
+      The C compiler identification is GNU, found in:
+        /home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/4.4.2/CompilerIdC/a.out
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:247 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_AR"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "ar"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/local/bin/"
+      - "/home/cmach_socket/.local/bin/"
+      - "/home/cmach_socket/.npm-global/bin/"
+      - "/home/cmach_socket/bin/"
+      - "/home/cmach_socket/.nix-profile/bin/"
+      - "/home/cmach_socket/.yarn/bin/"
+      - "/usr/local/sbin/"
+      - "/opt/android-ndk/"
+      - "/opt/android-sdk/cmdline-tools/latest/bin/"
+      - "/opt/android-sdk/platform-tools/"
+      - "/opt/android-sdk/tools/"
+      - "/opt/android-sdk/tools/bin/"
+      - "/opt/cuda/bin/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/usr/lib/rustup/bin/"
+    found: "/usr/bin/ar"
+    search_context:
+      ENV{PATH}:
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/local/bin"
+        - "/home/cmach_socket/.local/bin"
+        - "/home/cmach_socket/.npm-global/bin"
+        - "/home/cmach_socket/bin"
+        - "/home/cmach_socket/.nix-profile/bin"
+        - "/home/cmach_socket/.yarn/bin"
+        - "/usr/local/sbin"
+        - "/opt/android-ndk"
+        - "/opt/android-sdk/cmdline-tools/latest/bin"
+        - "/opt/android-sdk/platform-tools"
+        - "/opt/android-sdk/tools"
+        - "/opt/android-sdk/tools/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/usr/lib/rustup/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:247 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_RANLIB"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "ranlib"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/local/bin/"
+      - "/home/cmach_socket/.local/bin/"
+      - "/home/cmach_socket/.npm-global/bin/"
+      - "/home/cmach_socket/bin/"
+      - "/home/cmach_socket/.nix-profile/bin/"
+      - "/home/cmach_socket/.yarn/bin/"
+      - "/usr/local/sbin/"
+      - "/opt/android-ndk/"
+      - "/opt/android-sdk/cmdline-tools/latest/bin/"
+      - "/opt/android-sdk/platform-tools/"
+      - "/opt/android-sdk/tools/"
+      - "/opt/android-sdk/tools/bin/"
+      - "/opt/cuda/bin/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/usr/lib/rustup/bin/"
+    found: "/usr/bin/ranlib"
+    search_context:
+      ENV{PATH}:
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/local/bin"
+        - "/home/cmach_socket/.local/bin"
+        - "/home/cmach_socket/.npm-global/bin"
+        - "/home/cmach_socket/bin"
+        - "/home/cmach_socket/.nix-profile/bin"
+        - "/home/cmach_socket/.yarn/bin"
+        - "/usr/local/sbin"
+        - "/opt/android-ndk"
+        - "/opt/android-sdk/cmdline-tools/latest/bin"
+        - "/opt/android-sdk/platform-tools"
+        - "/opt/android-sdk/tools"
+        - "/opt/android-sdk/tools/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/usr/lib/rustup/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:247 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_STRIP"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "strip"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/local/bin/"
+      - "/home/cmach_socket/.local/bin/"
+      - "/home/cmach_socket/.npm-global/bin/"
+      - "/home/cmach_socket/bin/"
+      - "/home/cmach_socket/.nix-profile/bin/"
+      - "/home/cmach_socket/.yarn/bin/"
+      - "/usr/local/sbin/"
+      - "/opt/android-ndk/"
+      - "/opt/android-sdk/cmdline-tools/latest/bin/"
+      - "/opt/android-sdk/platform-tools/"
+      - "/opt/android-sdk/tools/"
+      - "/opt/android-sdk/tools/bin/"
+      - "/opt/cuda/bin/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/usr/lib/rustup/bin/"
+    found: "/usr/bin/strip"
+    search_context:
+      ENV{PATH}:
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/local/bin"
+        - "/home/cmach_socket/.local/bin"
+        - "/home/cmach_socket/.npm-global/bin"
+        - "/home/cmach_socket/bin"
+        - "/home/cmach_socket/.nix-profile/bin"
+        - "/home/cmach_socket/.yarn/bin"
+        - "/usr/local/sbin"
+        - "/opt/android-ndk"
+        - "/opt/android-sdk/cmdline-tools/latest/bin"
+        - "/opt/android-sdk/platform-tools"
+        - "/opt/android-sdk/tools"
+        - "/opt/android-sdk/tools/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/usr/lib/rustup/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:247 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_LINKER"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "ld"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/local/bin/"
+      - "/home/cmach_socket/.local/bin/"
+      - "/home/cmach_socket/.npm-global/bin/"
+      - "/home/cmach_socket/bin/"
+      - "/home/cmach_socket/.nix-profile/bin/"
+      - "/home/cmach_socket/.yarn/bin/"
+      - "/usr/local/sbin/"
+      - "/opt/android-ndk/"
+      - "/opt/android-sdk/cmdline-tools/latest/bin/"
+      - "/opt/android-sdk/platform-tools/"
+      - "/opt/android-sdk/tools/"
+      - "/opt/android-sdk/tools/bin/"
+      - "/opt/cuda/bin/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/usr/lib/rustup/bin/"
+    found: "/usr/bin/ld"
+    search_context:
+      ENV{PATH}:
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/local/bin"
+        - "/home/cmach_socket/.local/bin"
+        - "/home/cmach_socket/.npm-global/bin"
+        - "/home/cmach_socket/bin"
+        - "/home/cmach_socket/.nix-profile/bin"
+        - "/home/cmach_socket/.yarn/bin"
+        - "/usr/local/sbin"
+        - "/opt/android-ndk"
+        - "/opt/android-sdk/cmdline-tools/latest/bin"
+        - "/opt/android-sdk/platform-tools"
+        - "/opt/android-sdk/tools"
+        - "/opt/android-sdk/tools/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/usr/lib/rustup/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:247 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_NM"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "nm"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/local/bin/"
+      - "/home/cmach_socket/.local/bin/"
+      - "/home/cmach_socket/.npm-global/bin/"
+      - "/home/cmach_socket/bin/"
+      - "/home/cmach_socket/.nix-profile/bin/"
+      - "/home/cmach_socket/.yarn/bin/"
+      - "/usr/local/sbin/"
+      - "/opt/android-ndk/"
+      - "/opt/android-sdk/cmdline-tools/latest/bin/"
+      - "/opt/android-sdk/platform-tools/"
+      - "/opt/android-sdk/tools/"
+      - "/opt/android-sdk/tools/bin/"
+      - "/opt/cuda/bin/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/usr/lib/rustup/bin/"
+    found: "/usr/bin/nm"
+    search_context:
+      ENV{PATH}:
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/local/bin"
+        - "/home/cmach_socket/.local/bin"
+        - "/home/cmach_socket/.npm-global/bin"
+        - "/home/cmach_socket/bin"
+        - "/home/cmach_socket/.nix-profile/bin"
+        - "/home/cmach_socket/.yarn/bin"
+        - "/usr/local/sbin"
+        - "/opt/android-ndk"
+        - "/opt/android-sdk/cmdline-tools/latest/bin"
+        - "/opt/android-sdk/platform-tools"
+        - "/opt/android-sdk/tools"
+        - "/opt/android-sdk/tools/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/usr/lib/rustup/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:247 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_OBJDUMP"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "objdump"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/local/bin/"
+      - "/home/cmach_socket/.local/bin/"
+      - "/home/cmach_socket/.npm-global/bin/"
+      - "/home/cmach_socket/bin/"
+      - "/home/cmach_socket/.nix-profile/bin/"
+      - "/home/cmach_socket/.yarn/bin/"
+      - "/usr/local/sbin/"
+      - "/opt/android-ndk/"
+      - "/opt/android-sdk/cmdline-tools/latest/bin/"
+      - "/opt/android-sdk/platform-tools/"
+      - "/opt/android-sdk/tools/"
+      - "/opt/android-sdk/tools/bin/"
+      - "/opt/cuda/bin/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/usr/lib/rustup/bin/"
+    found: "/usr/bin/objdump"
+    search_context:
+      ENV{PATH}:
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/local/bin"
+        - "/home/cmach_socket/.local/bin"
+        - "/home/cmach_socket/.npm-global/bin"
+        - "/home/cmach_socket/bin"
+        - "/home/cmach_socket/.nix-profile/bin"
+        - "/home/cmach_socket/.yarn/bin"
+        - "/usr/local/sbin"
+        - "/opt/android-ndk"
+        - "/opt/android-sdk/cmdline-tools/latest/bin"
+        - "/opt/android-sdk/platform-tools"
+        - "/opt/android-sdk/tools"
+        - "/opt/android-sdk/tools/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/usr/lib/rustup/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:247 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_OBJCOPY"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "objcopy"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/local/bin/"
+      - "/home/cmach_socket/.local/bin/"
+      - "/home/cmach_socket/.npm-global/bin/"
+      - "/home/cmach_socket/bin/"
+      - "/home/cmach_socket/.nix-profile/bin/"
+      - "/home/cmach_socket/.yarn/bin/"
+      - "/usr/local/sbin/"
+      - "/opt/android-ndk/"
+      - "/opt/android-sdk/cmdline-tools/latest/bin/"
+      - "/opt/android-sdk/platform-tools/"
+      - "/opt/android-sdk/tools/"
+      - "/opt/android-sdk/tools/bin/"
+      - "/opt/cuda/bin/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/usr/lib/rustup/bin/"
+    found: "/usr/bin/objcopy"
+    search_context:
+      ENV{PATH}:
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/local/bin"
+        - "/home/cmach_socket/.local/bin"
+        - "/home/cmach_socket/.npm-global/bin"
+        - "/home/cmach_socket/bin"
+        - "/home/cmach_socket/.nix-profile/bin"
+        - "/home/cmach_socket/.yarn/bin"
+        - "/usr/local/sbin"
+        - "/opt/android-ndk"
+        - "/opt/android-sdk/cmdline-tools/latest/bin"
+        - "/opt/android-sdk/platform-tools"
+        - "/opt/android-sdk/tools"
+        - "/opt/android-sdk/tools/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/usr/lib/rustup/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:247 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_READELF"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "readelf"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/local/bin/"
+      - "/home/cmach_socket/.local/bin/"
+      - "/home/cmach_socket/.npm-global/bin/"
+      - "/home/cmach_socket/bin/"
+      - "/home/cmach_socket/.nix-profile/bin/"
+      - "/home/cmach_socket/.yarn/bin/"
+      - "/usr/local/sbin/"
+      - "/opt/android-ndk/"
+      - "/opt/android-sdk/cmdline-tools/latest/bin/"
+      - "/opt/android-sdk/platform-tools/"
+      - "/opt/android-sdk/tools/"
+      - "/opt/android-sdk/tools/bin/"
+      - "/opt/cuda/bin/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/usr/lib/rustup/bin/"
+    found: "/usr/bin/readelf"
+    search_context:
+      ENV{PATH}:
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/local/bin"
+        - "/home/cmach_socket/.local/bin"
+        - "/home/cmach_socket/.npm-global/bin"
+        - "/home/cmach_socket/bin"
+        - "/home/cmach_socket/.nix-profile/bin"
+        - "/home/cmach_socket/.yarn/bin"
+        - "/usr/local/sbin"
+        - "/opt/android-ndk"
+        - "/opt/android-sdk/cmdline-tools/latest/bin"
+        - "/opt/android-sdk/platform-tools"
+        - "/opt/android-sdk/tools"
+        - "/opt/android-sdk/tools/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/usr/lib/rustup/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:247 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_DLLTOOL"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "dlltool"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/local/bin/"
+      - "/home/cmach_socket/.local/bin/"
+      - "/home/cmach_socket/.npm-global/bin/"
+      - "/home/cmach_socket/bin/"
+      - "/home/cmach_socket/.nix-profile/bin/"
+      - "/home/cmach_socket/.yarn/bin/"
+      - "/usr/local/sbin/"
+      - "/opt/android-ndk/"
+      - "/opt/android-sdk/cmdline-tools/latest/bin/"
+      - "/opt/android-sdk/platform-tools/"
+      - "/opt/android-sdk/tools/"
+      - "/opt/android-sdk/tools/bin/"
+      - "/opt/cuda/bin/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/usr/lib/rustup/bin/"
+    searched_directories:
+      - "/usr/bin/dlltool"
+      - "/bin/dlltool"
+      - "/usr/local/bin/dlltool"
+      - "/home/cmach_socket/.local/bin/dlltool"
+      - "/home/cmach_socket/.npm-global/bin/dlltool"
+      - "/home/cmach_socket/bin/dlltool"
+      - "/home/cmach_socket/.nix-profile/bin/dlltool"
+      - "/home/cmach_socket/.yarn/bin/dlltool"
+      - "/usr/local/sbin/dlltool"
+      - "/opt/android-ndk/dlltool"
+      - "/opt/android-sdk/cmdline-tools/latest/bin/dlltool"
+      - "/opt/android-sdk/platform-tools/dlltool"
+      - "/opt/android-sdk/tools/dlltool"
+      - "/opt/android-sdk/tools/bin/dlltool"
+      - "/opt/cuda/bin/dlltool"
+      - "/usr/lib/jvm/default/bin/dlltool"
+      - "/usr/bin/site_perl/dlltool"
+      - "/usr/bin/vendor_perl/dlltool"
+      - "/usr/bin/core_perl/dlltool"
+      - "/usr/lib/rustup/bin/dlltool"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/local/bin"
+        - "/home/cmach_socket/.local/bin"
+        - "/home/cmach_socket/.npm-global/bin"
+        - "/home/cmach_socket/bin"
+        - "/home/cmach_socket/.nix-profile/bin"
+        - "/home/cmach_socket/.yarn/bin"
+        - "/usr/local/sbin"
+        - "/opt/android-ndk"
+        - "/opt/android-sdk/cmdline-tools/latest/bin"
+        - "/opt/android-sdk/platform-tools"
+        - "/opt/android-sdk/tools"
+        - "/opt/android-sdk/tools/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/usr/lib/rustup/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:247 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_ADDR2LINE"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "addr2line"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/local/bin/"
+      - "/home/cmach_socket/.local/bin/"
+      - "/home/cmach_socket/.npm-global/bin/"
+      - "/home/cmach_socket/bin/"
+      - "/home/cmach_socket/.nix-profile/bin/"
+      - "/home/cmach_socket/.yarn/bin/"
+      - "/usr/local/sbin/"
+      - "/opt/android-ndk/"
+      - "/opt/android-sdk/cmdline-tools/latest/bin/"
+      - "/opt/android-sdk/platform-tools/"
+      - "/opt/android-sdk/tools/"
+      - "/opt/android-sdk/tools/bin/"
+      - "/opt/cuda/bin/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/usr/lib/rustup/bin/"
+    found: "/usr/bin/addr2line"
+    search_context:
+      ENV{PATH}:
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/local/bin"
+        - "/home/cmach_socket/.local/bin"
+        - "/home/cmach_socket/.npm-global/bin"
+        - "/home/cmach_socket/bin"
+        - "/home/cmach_socket/.nix-profile/bin"
+        - "/home/cmach_socket/.yarn/bin"
+        - "/usr/local/sbin"
+        - "/opt/android-ndk"
+        - "/opt/android-sdk/cmdline-tools/latest/bin"
+        - "/opt/android-sdk/platform-tools"
+        - "/opt/android-sdk/tools"
+        - "/opt/android-sdk/tools/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/usr/lib/rustup/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:247 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_TAPI"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "tapi"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/local/bin/"
+      - "/home/cmach_socket/.local/bin/"
+      - "/home/cmach_socket/.npm-global/bin/"
+      - "/home/cmach_socket/bin/"
+      - "/home/cmach_socket/.nix-profile/bin/"
+      - "/home/cmach_socket/.yarn/bin/"
+      - "/usr/local/sbin/"
+      - "/opt/android-ndk/"
+      - "/opt/android-sdk/cmdline-tools/latest/bin/"
+      - "/opt/android-sdk/platform-tools/"
+      - "/opt/android-sdk/tools/"
+      - "/opt/android-sdk/tools/bin/"
+      - "/opt/cuda/bin/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/usr/lib/rustup/bin/"
+    searched_directories:
+      - "/usr/bin/tapi"
+      - "/bin/tapi"
+      - "/usr/local/bin/tapi"
+      - "/home/cmach_socket/.local/bin/tapi"
+      - "/home/cmach_socket/.npm-global/bin/tapi"
+      - "/home/cmach_socket/bin/tapi"
+      - "/home/cmach_socket/.nix-profile/bin/tapi"
+      - "/home/cmach_socket/.yarn/bin/tapi"
+      - "/usr/local/sbin/tapi"
+      - "/opt/android-ndk/tapi"
+      - "/opt/android-sdk/cmdline-tools/latest/bin/tapi"
+      - "/opt/android-sdk/platform-tools/tapi"
+      - "/opt/android-sdk/tools/tapi"
+      - "/opt/android-sdk/tools/bin/tapi"
+      - "/opt/cuda/bin/tapi"
+      - "/usr/lib/jvm/default/bin/tapi"
+      - "/usr/bin/site_perl/tapi"
+      - "/usr/bin/vendor_perl/tapi"
+      - "/usr/bin/core_perl/tapi"
+      - "/usr/lib/rustup/bin/tapi"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/local/bin"
+        - "/home/cmach_socket/.local/bin"
+        - "/home/cmach_socket/.npm-global/bin"
+        - "/home/cmach_socket/bin"
+        - "/home/cmach_socket/.nix-profile/bin"
+        - "/home/cmach_socket/.yarn/bin"
+        - "/usr/local/sbin"
+        - "/opt/android-ndk"
+        - "/opt/android-sdk/cmdline-tools/latest/bin"
+        - "/opt/android-sdk/platform-tools"
+        - "/opt/android-sdk/tools"
+        - "/opt/android-sdk/tools/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/usr/lib/rustup/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/Compiler/GNU-FindBinUtils.cmake:18 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:201 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_C_COMPILER_AR"
+    description: "A wrapper around 'ar' adding the appropriate '--plugin' option for the GCC compiler"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "gcc-ar-16.2"
+      - "gcc-ar-16"
+      - "gcc-ar16"
+      - "gcc-ar"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/local/bin/"
+      - "/home/cmach_socket/.local/bin/"
+      - "/home/cmach_socket/.npm-global/bin/"
+      - "/home/cmach_socket/bin/"
+      - "/home/cmach_socket/.nix-profile/bin/"
+      - "/home/cmach_socket/.yarn/bin/"
+      - "/usr/local/sbin/"
+      - "/opt/android-ndk/"
+      - "/opt/android-sdk/cmdline-tools/latest/bin/"
+      - "/opt/android-sdk/platform-tools/"
+      - "/opt/android-sdk/tools/"
+      - "/opt/android-sdk/tools/bin/"
+      - "/opt/cuda/bin/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/usr/lib/rustup/bin/"
+    searched_directories:
+      - "/usr/bin/gcc-ar-16.2"
+      - "/bin/gcc-ar-16.2"
+      - "/usr/local/bin/gcc-ar-16.2"
+      - "/home/cmach_socket/.local/bin/gcc-ar-16.2"
+      - "/home/cmach_socket/.npm-global/bin/gcc-ar-16.2"
+      - "/home/cmach_socket/bin/gcc-ar-16.2"
+      - "/home/cmach_socket/.nix-profile/bin/gcc-ar-16.2"
+      - "/home/cmach_socket/.yarn/bin/gcc-ar-16.2"
+      - "/usr/local/sbin/gcc-ar-16.2"
+      - "/opt/android-ndk/gcc-ar-16.2"
+      - "/opt/android-sdk/cmdline-tools/latest/bin/gcc-ar-16.2"
+      - "/opt/android-sdk/platform-tools/gcc-ar-16.2"
+      - "/opt/android-sdk/tools/gcc-ar-16.2"
+      - "/opt/android-sdk/tools/bin/gcc-ar-16.2"
+      - "/opt/cuda/bin/gcc-ar-16.2"
+      - "/usr/lib/jvm/default/bin/gcc-ar-16.2"
+      - "/usr/bin/site_perl/gcc-ar-16.2"
+      - "/usr/bin/vendor_perl/gcc-ar-16.2"
+      - "/usr/bin/core_perl/gcc-ar-16.2"
+      - "/usr/lib/rustup/bin/gcc-ar-16.2"
+      - "/usr/bin/gcc-ar-16"
+      - "/bin/gcc-ar-16"
+      - "/usr/local/bin/gcc-ar-16"
+      - "/home/cmach_socket/.local/bin/gcc-ar-16"
+      - "/home/cmach_socket/.npm-global/bin/gcc-ar-16"
+      - "/home/cmach_socket/bin/gcc-ar-16"
+      - "/home/cmach_socket/.nix-profile/bin/gcc-ar-16"
+      - "/home/cmach_socket/.yarn/bin/gcc-ar-16"
+      - "/usr/local/sbin/gcc-ar-16"
+      - "/opt/android-ndk/gcc-ar-16"
+      - "/opt/android-sdk/cmdline-tools/latest/bin/gcc-ar-16"
+      - "/opt/android-sdk/platform-tools/gcc-ar-16"
+      - "/opt/android-sdk/tools/gcc-ar-16"
+      - "/opt/android-sdk/tools/bin/gcc-ar-16"
+      - "/opt/cuda/bin/gcc-ar-16"
+      - "/usr/lib/jvm/default/bin/gcc-ar-16"
+      - "/usr/bin/site_perl/gcc-ar-16"
+      - "/usr/bin/vendor_perl/gcc-ar-16"
+      - "/usr/bin/core_perl/gcc-ar-16"
+      - "/usr/lib/rustup/bin/gcc-ar-16"
+      - "/usr/bin/gcc-ar16"
+      - "/bin/gcc-ar16"
+      - "/usr/local/bin/gcc-ar16"
+      - "/home/cmach_socket/.local/bin/gcc-ar16"
+      - "/home/cmach_socket/.npm-global/bin/gcc-ar16"
+      - "/home/cmach_socket/bin/gcc-ar16"
+      - "/home/cmach_socket/.nix-profile/bin/gcc-ar16"
+      - "/home/cmach_socket/.yarn/bin/gcc-ar16"
+      - "/usr/local/sbin/gcc-ar16"
+      - "/opt/android-ndk/gcc-ar16"
+      - "/opt/android-sdk/cmdline-tools/latest/bin/gcc-ar16"
+      - "/opt/android-sdk/platform-tools/gcc-ar16"
+      - "/opt/android-sdk/tools/gcc-ar16"
+      - "/opt/android-sdk/tools/bin/gcc-ar16"
+      - "/opt/cuda/bin/gcc-ar16"
+      - "/usr/lib/jvm/default/bin/gcc-ar16"
+      - "/usr/bin/site_perl/gcc-ar16"
+      - "/usr/bin/vendor_perl/gcc-ar16"
+      - "/usr/bin/core_perl/gcc-ar16"
+      - "/usr/lib/rustup/bin/gcc-ar16"
+    found: "/usr/bin/gcc-ar"
+    search_context:
+      ENV{PATH}:
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/local/bin"
+        - "/home/cmach_socket/.local/bin"
+        - "/home/cmach_socket/.npm-global/bin"
+        - "/home/cmach_socket/bin"
+        - "/home/cmach_socket/.nix-profile/bin"
+        - "/home/cmach_socket/.yarn/bin"
+        - "/usr/local/sbin"
+        - "/opt/android-ndk"
+        - "/opt/android-sdk/cmdline-tools/latest/bin"
+        - "/opt/android-sdk/platform-tools"
+        - "/opt/android-sdk/tools"
+        - "/opt/android-sdk/tools/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/usr/lib/rustup/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/Compiler/GNU-FindBinUtils.cmake:30 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:201 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_C_COMPILER_RANLIB"
+    description: "A wrapper around 'ranlib' adding the appropriate '--plugin' option for the GCC compiler"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "gcc-ranlib-16.2"
+      - "gcc-ranlib-16"
+      - "gcc-ranlib16"
+      - "gcc-ranlib"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/local/bin/"
+      - "/home/cmach_socket/.local/bin/"
+      - "/home/cmach_socket/.npm-global/bin/"
+      - "/home/cmach_socket/bin/"
+      - "/home/cmach_socket/.nix-profile/bin/"
+      - "/home/cmach_socket/.yarn/bin/"
+      - "/usr/local/sbin/"
+      - "/opt/android-ndk/"
+      - "/opt/android-sdk/cmdline-tools/latest/bin/"
+      - "/opt/android-sdk/platform-tools/"
+      - "/opt/android-sdk/tools/"
+      - "/opt/android-sdk/tools/bin/"
+      - "/opt/cuda/bin/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/usr/lib/rustup/bin/"
+    searched_directories:
+      - "/usr/bin/gcc-ranlib-16.2"
+      - "/bin/gcc-ranlib-16.2"
+      - "/usr/local/bin/gcc-ranlib-16.2"
+      - "/home/cmach_socket/.local/bin/gcc-ranlib-16.2"
+      - "/home/cmach_socket/.npm-global/bin/gcc-ranlib-16.2"
+      - "/home/cmach_socket/bin/gcc-ranlib-16.2"
+      - "/home/cmach_socket/.nix-profile/bin/gcc-ranlib-16.2"
+      - "/home/cmach_socket/.yarn/bin/gcc-ranlib-16.2"
+      - "/usr/local/sbin/gcc-ranlib-16.2"
+      - "/opt/android-ndk/gcc-ranlib-16.2"
+      - "/opt/android-sdk/cmdline-tools/latest/bin/gcc-ranlib-16.2"
+      - "/opt/android-sdk/platform-tools/gcc-ranlib-16.2"
+      - "/opt/android-sdk/tools/gcc-ranlib-16.2"
+      - "/opt/android-sdk/tools/bin/gcc-ranlib-16.2"
+      - "/opt/cuda/bin/gcc-ranlib-16.2"
+      - "/usr/lib/jvm/default/bin/gcc-ranlib-16.2"
+      - "/usr/bin/site_perl/gcc-ranlib-16.2"
+      - "/usr/bin/vendor_perl/gcc-ranlib-16.2"
+      - "/usr/bin/core_perl/gcc-ranlib-16.2"
+      - "/usr/lib/rustup/bin/gcc-ranlib-16.2"
+      - "/usr/bin/gcc-ranlib-16"
+      - "/bin/gcc-ranlib-16"
+      - "/usr/local/bin/gcc-ranlib-16"
+      - "/home/cmach_socket/.local/bin/gcc-ranlib-16"
+      - "/home/cmach_socket/.npm-global/bin/gcc-ranlib-16"
+      - "/home/cmach_socket/bin/gcc-ranlib-16"
+      - "/home/cmach_socket/.nix-profile/bin/gcc-ranlib-16"
+      - "/home/cmach_socket/.yarn/bin/gcc-ranlib-16"
+      - "/usr/local/sbin/gcc-ranlib-16"
+      - "/opt/android-ndk/gcc-ranlib-16"
+      - "/opt/android-sdk/cmdline-tools/latest/bin/gcc-ranlib-16"
+      - "/opt/android-sdk/platform-tools/gcc-ranlib-16"
+      - "/opt/android-sdk/tools/gcc-ranlib-16"
+      - "/opt/android-sdk/tools/bin/gcc-ranlib-16"
+      - "/opt/cuda/bin/gcc-ranlib-16"
+      - "/usr/lib/jvm/default/bin/gcc-ranlib-16"
+      - "/usr/bin/site_perl/gcc-ranlib-16"
+      - "/usr/bin/vendor_perl/gcc-ranlib-16"
+      - "/usr/bin/core_perl/gcc-ranlib-16"
+      - "/usr/lib/rustup/bin/gcc-ranlib-16"
+      - "/usr/bin/gcc-ranlib16"
+      - "/bin/gcc-ranlib16"
+      - "/usr/local/bin/gcc-ranlib16"
+      - "/home/cmach_socket/.local/bin/gcc-ranlib16"
+      - "/home/cmach_socket/.npm-global/bin/gcc-ranlib16"
+      - "/home/cmach_socket/bin/gcc-ranlib16"
+      - "/home/cmach_socket/.nix-profile/bin/gcc-ranlib16"
+      - "/home/cmach_socket/.yarn/bin/gcc-ranlib16"
+      - "/usr/local/sbin/gcc-ranlib16"
+      - "/opt/android-ndk/gcc-ranlib16"
+      - "/opt/android-sdk/cmdline-tools/latest/bin/gcc-ranlib16"
+      - "/opt/android-sdk/platform-tools/gcc-ranlib16"
+      - "/opt/android-sdk/tools/gcc-ranlib16"
+      - "/opt/android-sdk/tools/bin/gcc-ranlib16"
+      - "/opt/cuda/bin/gcc-ranlib16"
+      - "/usr/lib/jvm/default/bin/gcc-ranlib16"
+      - "/usr/bin/site_perl/gcc-ranlib16"
+      - "/usr/bin/vendor_perl/gcc-ranlib16"
+      - "/usr/bin/core_perl/gcc-ranlib16"
+      - "/usr/lib/rustup/bin/gcc-ranlib16"
+    found: "/usr/bin/gcc-ranlib"
+    search_context:
+      ENV{PATH}:
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/local/bin"
+        - "/home/cmach_socket/.local/bin"
+        - "/home/cmach_socket/.npm-global/bin"
+        - "/home/cmach_socket/bin"
+        - "/home/cmach_socket/.nix-profile/bin"
+        - "/home/cmach_socket/.yarn/bin"
+        - "/usr/local/sbin"
+        - "/opt/android-ndk"
+        - "/opt/android-sdk/cmdline-tools/latest/bin"
+        - "/opt/android-sdk/platform-tools"
+        - "/opt/android-sdk/tools"
+        - "/opt/android-sdk/tools/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/usr/lib/rustup/bin"
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:123 (try_compile)"
+      - "/usr/share/cmake/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-xAE12G"
+      binary: "/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-xAE12G"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: false
+      stdout: |
+        Change Dir: '/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-xAE12G'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_d0dca/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_d0dca.dir/build.make CMakeFiles/cmTC_d0dca.dir/build
+        make[1]: Entering directory '/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-xAE12G'
+        Building C object CMakeFiles/cmTC_d0dca.dir/CMakeCCompilerABI.c.o
+        /usr/bin/cc   -v -o CMakeFiles/cmTC_d0dca.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake/Modules/CMakeCCompilerABI.c
+        Using built-in specs.
+        COLLECT_GCC=/usr/bin/cc
+        Target: x86_64-pc-linux-gnu
+        Configured with: ../gcc/configure --enable-languages=ada,c,c++,d,fortran,go,lto,m2,objc,obj-c++,rust,cobol --enable-bootstrap --prefix=/usr --libdir=/usr/lib --libexecdir=/usr/lib --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://gitlab.archlinux.org/archlinux/packaging/packages/gcc/-/issues --with-build-config=bootstrap-lto --with-gcc-major-version-only --with-linker-hash-style=gnu --with-system-zlib --enable-cet=auto --enable-checking=release --enable-clocale=gnu --enable-default-pie --enable-default-ssp --enable-gnu-indirect-function --enable-gnu-unique-object --enable-libstdcxx-backtrace --enable-link-serialization=1 --enable-linker-build-id --enable-lto --enable-multilib --enable-plugin --enable-shared --enable-threads=posix --disable-fixincludes --disable-libssp --disable-libstdcxx-pch --disable-werror
+        Thread model: posix
+        Supported LTO compression algorithms: zlib zstd
+        gcc version 16.2.1 20260810 (GCC) 
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_d0dca.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_d0dca.dir/'
+         /usr/lib/gcc/x86_64-pc-linux-gnu/16/cc1 -quiet -v /usr/share/cmake/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_d0dca.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -o /tmp/ccFEfnBD.s
+        GNU C23 (GCC) version 16.2.1 20260810 (x86_64-pc-linux-gnu)
+        	compiled by GNU C version 16.2.1 20260810, GMP version 6.3.0, MPFR version 4.2.2, MPC version 1.4.1, isl version isl-0.28-GMP
+        
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        ignoring nonexistent directory "/usr/lib/gcc/x86_64-pc-linux-gnu/16/include-fixed"
+        ignoring nonexistent directory "/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../x86_64-pc-linux-gnu/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /usr/lib/gcc/x86_64-pc-linux-gnu/16/include
+         /usr/local/include
+         /usr/include
+        End of search list.
+        Compiler executable checksum: f931fde8682f21d1ebcf65f6b881e532
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_d0dca.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_d0dca.dir/'
+         as -v --64 -o CMakeFiles/cmTC_d0dca.dir/CMakeCCompilerABI.c.o /tmp/ccFEfnBD.s
+        GNU assembler version 2.47 (x86_64-pc-linux-gnu) using BFD version (GNU Binutils) 2.47
+        COMPILER_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/16/:/usr/lib/gcc/x86_64-pc-linux-gnu/16/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/16/:/usr/lib/gcc/x86_64-pc-linux-gnu/
+        LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/16/:/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../:/lib/:/usr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_d0dca.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_d0dca.dir/CMakeCCompilerABI.c.'
+        Linking C executable cmTC_d0dca
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d0dca.dir/link.txt --verbose=1
+        Using built-in specs.
+        COLLECT_GCC=/usr/bin/cc
+        COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-pc-linux-gnu/16/lto-wrapper
+        Target: x86_64-pc-linux-gnu
+        Configured with: ../gcc/configure --enable-languages=ada,c,c++,d,fortran,go,lto,m2,objc,obj-c++,rust,cobol --enable-bootstrap --prefix=/usr --libdir=/usr/lib --libexecdir=/usr/lib --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://gitlab.archlinux.org/archlinux/packaging/packages/gcc/-/issues --with-build-config=bootstrap-lto --with-gcc-major-version-only --with-linker-hash-style=gnu --with-system-zlib --enable-cet=auto --enable-checking=release --enable-clocale=gnu --enable-default-pie --enable-default-ssp --enable-gnu-indirect-function --enable-gnu-unique-object --enable-libstdcxx-backtrace --enable-link-serialization=1 --enable-linker-build-id --enable-lto --enable-multilib --enable-plugin --enable-shared --enable-threads=posix --disable-fixincludes --disable-libssp --disable-libstdcxx-pch --disable-werror
+        Thread model: posix
+        Supported LTO compression algorithms: zlib zstd
+        gcc version 16.2.1 20260810 (GCC) 
+        COMPILER_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/16/:/usr/lib/gcc/x86_64-pc-linux-gnu/16/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/16/:/usr/lib/gcc/x86_64-pc-linux-gnu/
+        LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/16/:/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../:/lib/:/usr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_d0dca' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_d0dca.'
+         /usr/lib/gcc/x86_64-pc-linux-gnu/16/collect2 -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/16/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/16/lto-wrapper -plugin-opt=-fresolution=/tmp/ccLhPhs4.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s_asneeded -plugin-opt=-pass-through=-latomic_asneeded -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s_asneeded --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_d0dca /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/16/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/16 -L/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../.. -L/lib -L/usr/lib -v CMakeFiles/cmTC_d0dca.dir/CMakeCCompilerABI.c.o -lgcc -lgcc_s_asneeded -latomic_asneeded -lc -lgcc -lgcc_s_asneeded /usr/lib/gcc/x86_64-pc-linux-gnu/16/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/crtn.o
+        collect2 version 16.2.1 20260810
+        /usr/bin/ld -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/16/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/16/lto-wrapper -plugin-opt=-fresolution=/tmp/ccLhPhs4.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s_asneeded -plugin-opt=-pass-through=-latomic_asneeded -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s_asneeded --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_d0dca /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/16/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/16 -L/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../.. -L/lib -L/usr/lib -v CMakeFiles/cmTC_d0dca.dir/CMakeCCompilerABI.c.o -lgcc -lgcc_s_asneeded -latomic_asneeded -lc -lgcc -lgcc_s_asneeded /usr/lib/gcc/x86_64-pc-linux-gnu/16/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/crtn.o
+        GNU ld (GNU Binutils) 2.47
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_d0dca' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_d0dca.'
+        /usr/bin/cc  -v -Wl,-v CMakeFiles/cmTC_d0dca.dir/CMakeCCompilerABI.c.o -o cmTC_d0dca
+        make[1]: Leaving directory '/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-xAE12G'
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:255 (message)"
+      - "/usr/share/cmake/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed C implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [/usr/lib/gcc/x86_64-pc-linux-gnu/16/include]
+          add: [/usr/local/include]
+          add: [/usr/include]
+        end of search list found
+        collapse include dir [/usr/lib/gcc/x86_64-pc-linux-gnu/16/include] ==> [/usr/lib/gcc/x86_64-pc-linux-gnu/16/include]
+        collapse include dir [/usr/local/include] ==> [/usr/local/include]
+        collapse include dir [/usr/include] ==> [/usr/include]
+        implicit include dirs: [/usr/lib/gcc/x86_64-pc-linux-gnu/16/include;/usr/local/include;/usr/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:291 (message)"
+      - "/usr/share/cmake/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed C implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|wild|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|"|[0-9]+>[ 	-]*Build:[ 	0-9]+ ms[ 	]*)?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|wild))("|,| |$)]
+        ignore line: [Change Dir: '/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-xAE12G']
+        ignore line: []
+        ignore line: [Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_d0dca/fast]
+        ignore line: [/usr/bin/make  -f CMakeFiles/cmTC_d0dca.dir/build.make CMakeFiles/cmTC_d0dca.dir/build]
+        ignore line: [make[1]: Entering directory '/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-xAE12G']
+        ignore line: [Building C object CMakeFiles/cmTC_d0dca.dir/CMakeCCompilerABI.c.o]
+        ignore line: [/usr/bin/cc   -v -o CMakeFiles/cmTC_d0dca.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake/Modules/CMakeCCompilerABI.c]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=/usr/bin/cc]
+        ignore line: [Target: x86_64-pc-linux-gnu]
+        ignore line: [Configured with: ../gcc/configure --enable-languages=ada c c++ d fortran go lto m2 objc obj-c++ rust cobol --enable-bootstrap --prefix=/usr --libdir=/usr/lib --libexecdir=/usr/lib --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://gitlab.archlinux.org/archlinux/packaging/packages/gcc/-/issues --with-build-config=bootstrap-lto --with-gcc-major-version-only --with-linker-hash-style=gnu --with-system-zlib --enable-cet=auto --enable-checking=release --enable-clocale=gnu --enable-default-pie --enable-default-ssp --enable-gnu-indirect-function --enable-gnu-unique-object --enable-libstdcxx-backtrace --enable-link-serialization=1 --enable-linker-build-id --enable-lto --enable-multilib --enable-plugin --enable-shared --enable-threads=posix --disable-fixincludes --disable-libssp --disable-libstdcxx-pch --disable-werror]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib zstd]
+        ignore line: [gcc version 16.2.1 20260810 (GCC) ]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_d0dca.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_d0dca.dir/']
+        ignore line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/16/cc1 -quiet -v /usr/share/cmake/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_d0dca.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -o /tmp/ccFEfnBD.s]
+        ignore line: [GNU C23 (GCC) version 16.2.1 20260810 (x86_64-pc-linux-gnu)]
+        ignore line: [	compiled by GNU C version 16.2.1 20260810  GMP version 6.3.0  MPFR version 4.2.2  MPC version 1.4.1  isl version isl-0.28-GMP]
+        ignore line: []
+        ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+        ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-pc-linux-gnu/16/include-fixed"]
+        ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../x86_64-pc-linux-gnu/include"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/16/include]
+        ignore line: [ /usr/local/include]
+        ignore line: [ /usr/include]
+        ignore line: [End of search list.]
+        ignore line: [Compiler executable checksum: f931fde8682f21d1ebcf65f6b881e532]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_d0dca.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_d0dca.dir/']
+        ignore line: [ as -v --64 -o CMakeFiles/cmTC_d0dca.dir/CMakeCCompilerABI.c.o /tmp/ccFEfnBD.s]
+        ignore line: [GNU assembler version 2.47 (x86_64-pc-linux-gnu) using BFD version (GNU Binutils) 2.47]
+        ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/16/:/usr/lib/gcc/x86_64-pc-linux-gnu/16/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/16/:/usr/lib/gcc/x86_64-pc-linux-gnu/]
+        ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/16/:/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../:/lib/:/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_d0dca.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_d0dca.dir/CMakeCCompilerABI.c.']
+        ignore line: [Linking C executable cmTC_d0dca]
+        ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d0dca.dir/link.txt --verbose=1]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=/usr/bin/cc]
+        ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-pc-linux-gnu/16/lto-wrapper]
+        ignore line: [Target: x86_64-pc-linux-gnu]
+        ignore line: [Configured with: ../gcc/configure --enable-languages=ada c c++ d fortran go lto m2 objc obj-c++ rust cobol --enable-bootstrap --prefix=/usr --libdir=/usr/lib --libexecdir=/usr/lib --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://gitlab.archlinux.org/archlinux/packaging/packages/gcc/-/issues --with-build-config=bootstrap-lto --with-gcc-major-version-only --with-linker-hash-style=gnu --with-system-zlib --enable-cet=auto --enable-checking=release --enable-clocale=gnu --enable-default-pie --enable-default-ssp --enable-gnu-indirect-function --enable-gnu-unique-object --enable-libstdcxx-backtrace --enable-link-serialization=1 --enable-linker-build-id --enable-lto --enable-multilib --enable-plugin --enable-shared --enable-threads=posix --disable-fixincludes --disable-libssp --disable-libstdcxx-pch --disable-werror]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib zstd]
+        ignore line: [gcc version 16.2.1 20260810 (GCC) ]
+        ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/16/:/usr/lib/gcc/x86_64-pc-linux-gnu/16/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/16/:/usr/lib/gcc/x86_64-pc-linux-gnu/]
+        ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/16/:/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../:/lib/:/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_d0dca' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_d0dca.']
+        link line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/16/collect2 -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/16/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/16/lto-wrapper -plugin-opt=-fresolution=/tmp/ccLhPhs4.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s_asneeded -plugin-opt=-pass-through=-latomic_asneeded -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s_asneeded --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_d0dca /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/16/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/16 -L/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../.. -L/lib -L/usr/lib -v CMakeFiles/cmTC_d0dca.dir/CMakeCCompilerABI.c.o -lgcc -lgcc_s_asneeded -latomic_asneeded -lc -lgcc -lgcc_s_asneeded /usr/lib/gcc/x86_64-pc-linux-gnu/16/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/crtn.o]
+          arg [/usr/lib/gcc/x86_64-pc-linux-gnu/16/collect2] ==> ignore
+          arg [-plugin] ==> ignore
+          arg [/usr/lib/gcc/x86_64-pc-linux-gnu/16/liblto_plugin.so] ==> ignore
+          arg [-plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/16/lto-wrapper] ==> ignore
+          arg [-plugin-opt=-fresolution=/tmp/ccLhPhs4.res] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_s_asneeded] ==> ignore
+          arg [-plugin-opt=-pass-through=-latomic_asneeded] ==> ignore
+          arg [-plugin-opt=-pass-through=-lc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_s_asneeded] ==> ignore
+          arg [--build-id] ==> ignore
+          arg [--eh-frame-hdr] ==> ignore
+          arg [--hash-style=gnu] ==> ignore
+          arg [-m] ==> ignore
+          arg [elf_x86_64] ==> ignore
+          arg [-dynamic-linker] ==> ignore
+          arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+          arg [-pie] ==> ignore
+          arg [-o] ==> ignore
+          arg [cmTC_d0dca] ==> ignore
+          arg [/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/Scrt1.o] ==> obj [/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/Scrt1.o]
+          arg [/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/crti.o] ==> obj [/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/crti.o]
+          arg [/usr/lib/gcc/x86_64-pc-linux-gnu/16/crtbeginS.o] ==> obj [/usr/lib/gcc/x86_64-pc-linux-gnu/16/crtbeginS.o]
+          arg [-L/usr/lib/gcc/x86_64-pc-linux-gnu/16] ==> dir [/usr/lib/gcc/x86_64-pc-linux-gnu/16]
+          arg [-L/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib] ==> dir [/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib]
+          arg [-L/lib/../lib] ==> dir [/lib/../lib]
+          arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
+          arg [-L/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../..] ==> dir [/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../..]
+          arg [-L/lib] ==> dir [/lib]
+          arg [-L/usr/lib] ==> dir [/usr/lib]
+          arg [-v] ==> ignore
+          arg [CMakeFiles/cmTC_d0dca.dir/CMakeCCompilerABI.c.o] ==> ignore
+          arg [-lgcc] ==> lib [gcc]
+          arg [-lgcc_s_asneeded] ==> lib [gcc_s_asneeded]
+          arg [-latomic_asneeded] ==> lib [atomic_asneeded]
+          arg [-lc] ==> lib [c]
+          arg [-lgcc] ==> lib [gcc]
+          arg [-lgcc_s_asneeded] ==> lib [gcc_s_asneeded]
+          arg [/usr/lib/gcc/x86_64-pc-linux-gnu/16/crtendS.o] ==> obj [/usr/lib/gcc/x86_64-pc-linux-gnu/16/crtendS.o]
+          arg [/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/crtn.o] ==> obj [/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/crtn.o]
+        ignore line: [collect2 version 16.2.1 20260810]
+        link line: [/usr/bin/ld -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/16/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/16/lto-wrapper -plugin-opt=-fresolution=/tmp/ccLhPhs4.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s_asneeded -plugin-opt=-pass-through=-latomic_asneeded -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s_asneeded --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_d0dca /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/16/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/16 -L/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../.. -L/lib -L/usr/lib -v CMakeFiles/cmTC_d0dca.dir/CMakeCCompilerABI.c.o -lgcc -lgcc_s_asneeded -latomic_asneeded -lc -lgcc -lgcc_s_asneeded /usr/lib/gcc/x86_64-pc-linux-gnu/16/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/crtn.o] ==> linker [/usr/bin/ld]
+        link line: [/usr/bin/ld -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/16/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/16/lto-wrapper -plugin-opt=-fresolution=/tmp/ccLhPhs4.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s_asneeded -plugin-opt=-pass-through=-latomic_asneeded -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s_asneeded --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_d0dca /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/16/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/16 -L/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../.. -L/lib -L/usr/lib -v CMakeFiles/cmTC_d0dca.dir/CMakeCCompilerABI.c.o -lgcc -lgcc_s_asneeded -latomic_asneeded -lc -lgcc -lgcc_s_asneeded /usr/lib/gcc/x86_64-pc-linux-gnu/16/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/crtn.o] ==> linker architecture flags [-m;elf]
+        ignore line: [/usr/bin/ld -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/16/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/16/lto-wrapper -plugin-opt=-fresolution=/tmp/ccLhPhs4.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s_asneeded -plugin-opt=-pass-through=-latomic_asneeded -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s_asneeded --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_d0dca /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/16/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/16 -L/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../.. -L/lib -L/usr/lib -v CMakeFiles/cmTC_d0dca.dir/CMakeCCompilerABI.c.o -lgcc -lgcc_s_asneeded -latomic_asneeded -lc -lgcc -lgcc_s_asneeded /usr/lib/gcc/x86_64-pc-linux-gnu/16/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/crtn.o]
+        linker tool for 'C': /usr/bin/ld -m;elf
+        collapse obj [/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/Scrt1.o] ==> [/usr/lib/Scrt1.o]
+        collapse obj [/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/crti.o] ==> [/usr/lib/crti.o]
+        collapse obj [/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/crtn.o] ==> [/usr/lib/crtn.o]
+        collapse library dir [/usr/lib/gcc/x86_64-pc-linux-gnu/16] ==> [/usr/lib/gcc/x86_64-pc-linux-gnu/16]
+        collapse library dir [/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib] ==> [/usr/lib]
+        collapse library dir [/lib/../lib] ==> [/lib]
+        collapse library dir [/usr/lib/../lib] ==> [/usr/lib]
+        collapse library dir [/usr/lib/gcc/x86_64-pc-linux-gnu/16/../../..] ==> [/usr/lib]
+        collapse library dir [/lib] ==> [/lib]
+        collapse library dir [/usr/lib] ==> [/usr/lib]
+        implicit libs: [gcc;gcc_s_asneeded;atomic_asneeded;c;gcc;gcc_s_asneeded]
+        implicit objs: [/usr/lib/Scrt1.o;/usr/lib/crti.o;/usr/lib/gcc/x86_64-pc-linux-gnu/16/crtbeginS.o;/usr/lib/gcc/x86_64-pc-linux-gnu/16/crtendS.o;/usr/lib/crtn.o]
+        implicit dirs: [/usr/lib/gcc/x86_64-pc-linux-gnu/16;/usr/lib;/lib]
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/Internal/CMakeDetermineLinkerId.cmake:41 (message)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:337 (cmake_determine_linker_id)"
+      - "/usr/share/cmake/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Running the C compiler's linker: "/usr/bin/ld" "-v"
+      GNU ld (GNU Binutils) 2.47
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/Internal/CheckSourceCompiles.cmake:81 (try_compile)"
+      - "/usr/share/cmake/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "/usr/share/cmake/Modules/CheckCCompilerFlag.cmake:105 (cmake_check_compiler_flag)"
+      - "quickjs/CMakeLists.txt:82 (check_c_compiler_flag)"
+      - "quickjs/CMakeLists.txt:88 (xcheck_add_c_compiler_flag)"
+    checks:
+      - "Performing Test COMPILER_SUPPORTS_Wall"
+    directories:
+      source: "/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-Jnf7un"
+      binary: "/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-Jnf7un"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "COMPILER_SUPPORTS_Wall"
+      cached: true
+      stdout: |
+        Change Dir: '/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-Jnf7un'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_14ad2/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_14ad2.dir/build.make CMakeFiles/cmTC_14ad2.dir/build
+        make[1]: Entering directory '/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-Jnf7un'
+        Building C object CMakeFiles/cmTC_14ad2.dir/src.c.o
+        /usr/bin/cc -DCOMPILER_SUPPORTS_Wall  -std=gnu11   -Wall -o CMakeFiles/cmTC_14ad2.dir/src.c.o -c /home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-Jnf7un/src.c
+        Linking C executable cmTC_14ad2
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_14ad2.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_14ad2.dir/src.c.o -o cmTC_14ad2
+        make[1]: Leaving directory '/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-Jnf7un'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/Internal/CheckSourceCompiles.cmake:81 (try_compile)"
+      - "/usr/share/cmake/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "/usr/share/cmake/Modules/CheckCCompilerFlag.cmake:105 (cmake_check_compiler_flag)"
+      - "quickjs/CMakeLists.txt:82 (check_c_compiler_flag)"
+      - "quickjs/CMakeLists.txt:93 (xcheck_add_c_compiler_flag)"
+    checks:
+      - "Performing Test COMPILER_SUPPORTS_Wextra"
+    directories:
+      source: "/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-DUlQPE"
+      binary: "/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-DUlQPE"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "COMPILER_SUPPORTS_Wextra"
+      cached: true
+      stdout: |
+        Change Dir: '/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-DUlQPE'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_b1de5/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_b1de5.dir/build.make CMakeFiles/cmTC_b1de5.dir/build
+        make[1]: Entering directory '/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-DUlQPE'
+        Building C object CMakeFiles/cmTC_b1de5.dir/src.c.o
+        /usr/bin/cc -DCOMPILER_SUPPORTS_Wextra  -std=gnu11   -Wextra -o CMakeFiles/cmTC_b1de5.dir/src.c.o -c /home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-DUlQPE/src.c
+        Linking C executable cmTC_b1de5
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b1de5.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_b1de5.dir/src.c.o -o cmTC_b1de5
+        make[1]: Leaving directory '/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-DUlQPE'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/Internal/CheckSourceCompiles.cmake:81 (try_compile)"
+      - "/usr/share/cmake/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "/usr/share/cmake/Modules/CheckCCompilerFlag.cmake:105 (cmake_check_compiler_flag)"
+      - "quickjs/CMakeLists.txt:82 (check_c_compiler_flag)"
+      - "quickjs/CMakeLists.txt:95 (xcheck_add_c_compiler_flag)"
+    checks:
+      - "Performing Test COMPILER_SUPPORTS_Wformat=2"
+    directories:
+      source: "/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-1V4pIE"
+      binary: "/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-1V4pIE"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "COMPILER_SUPPORTS_Wformat=2"
+      cached: true
+      stdout: |
+        Change Dir: '/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-1V4pIE'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_1d4f4/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_1d4f4.dir/build.make CMakeFiles/cmTC_1d4f4.dir/build
+        make[1]: Entering directory '/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-1V4pIE'
+        Building C object CMakeFiles/cmTC_1d4f4.dir/src.c.o
+        /usr/bin/cc -DCOMPILER_SUPPORTS_Wformat=2  -std=gnu11   -Wformat=2 -o CMakeFiles/cmTC_1d4f4.dir/src.c.o -c /home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-1V4pIE/src.c
+        Linking C executable cmTC_1d4f4
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1d4f4.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_1d4f4.dir/src.c.o -o cmTC_1d4f4
+        make[1]: Leaving directory '/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-1V4pIE'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/Internal/CheckSourceCompiles.cmake:81 (try_compile)"
+      - "/usr/share/cmake/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "/usr/share/cmake/Modules/CheckCCompilerFlag.cmake:105 (cmake_check_compiler_flag)"
+      - "quickjs/CMakeLists.txt:82 (check_c_compiler_flag)"
+      - "quickjs/CMakeLists.txt:96 (xcheck_add_c_compiler_flag)"
+    checks:
+      - "Performing Test COMPILER_SUPPORTS_Wnoimplicitfallthrough"
+    directories:
+      source: "/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-BZP6bf"
+      binary: "/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-BZP6bf"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "COMPILER_SUPPORTS_Wnoimplicitfallthrough"
+      cached: true
+      stdout: |
+        Change Dir: '/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-BZP6bf'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_993b0/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_993b0.dir/build.make CMakeFiles/cmTC_993b0.dir/build
+        make[1]: Entering directory '/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-BZP6bf'
+        Building C object CMakeFiles/cmTC_993b0.dir/src.c.o
+        /usr/bin/cc -DCOMPILER_SUPPORTS_Wnoimplicitfallthrough  -std=gnu11   -Wno-implicit-fallthrough -o CMakeFiles/cmTC_993b0.dir/src.c.o -c /home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-BZP6bf/src.c
+        Linking C executable cmTC_993b0
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_993b0.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_993b0.dir/src.c.o -o cmTC_993b0
+        make[1]: Leaving directory '/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-BZP6bf'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/Internal/CheckSourceCompiles.cmake:81 (try_compile)"
+      - "/usr/share/cmake/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "/usr/share/cmake/Modules/CheckCCompilerFlag.cmake:105 (cmake_check_compiler_flag)"
+      - "quickjs/CMakeLists.txt:82 (check_c_compiler_flag)"
+      - "quickjs/CMakeLists.txt:97 (xcheck_add_c_compiler_flag)"
+    checks:
+      - "Performing Test COMPILER_SUPPORTS_Wnosigncompare"
+    directories:
+      source: "/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-C0x7o3"
+      binary: "/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-C0x7o3"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "COMPILER_SUPPORTS_Wnosigncompare"
+      cached: true
+      stdout: |
+        Change Dir: '/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-C0x7o3'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_7c476/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_7c476.dir/build.make CMakeFiles/cmTC_7c476.dir/build
+        make[1]: Entering directory '/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-C0x7o3'
+        Building C object CMakeFiles/cmTC_7c476.dir/src.c.o
+        /usr/bin/cc -DCOMPILER_SUPPORTS_Wnosigncompare  -std=gnu11   -Wno-sign-compare -o CMakeFiles/cmTC_7c476.dir/src.c.o -c /home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-C0x7o3/src.c
+        Linking C executable cmTC_7c476
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7c476.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_7c476.dir/src.c.o -o cmTC_7c476
+        make[1]: Leaving directory '/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-C0x7o3'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/Internal/CheckSourceCompiles.cmake:81 (try_compile)"
+      - "/usr/share/cmake/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "/usr/share/cmake/Modules/CheckCCompilerFlag.cmake:105 (cmake_check_compiler_flag)"
+      - "quickjs/CMakeLists.txt:82 (check_c_compiler_flag)"
+      - "quickjs/CMakeLists.txt:98 (xcheck_add_c_compiler_flag)"
+    checks:
+      - "Performing Test COMPILER_SUPPORTS_Wnomissingfieldinitializers"
+    directories:
+      source: "/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-jVvwFc"
+      binary: "/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-jVvwFc"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "COMPILER_SUPPORTS_Wnomissingfieldinitializers"
+      cached: true
+      stdout: |
+        Change Dir: '/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-jVvwFc'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_bf7ca/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_bf7ca.dir/build.make CMakeFiles/cmTC_bf7ca.dir/build
+        make[1]: Entering directory '/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-jVvwFc'
+        Building C object CMakeFiles/cmTC_bf7ca.dir/src.c.o
+        /usr/bin/cc -DCOMPILER_SUPPORTS_Wnomissingfieldinitializers  -std=gnu11   -Wno-missing-field-initializers -o CMakeFiles/cmTC_bf7ca.dir/src.c.o -c /home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-jVvwFc/src.c
+        Linking C executable cmTC_bf7ca
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bf7ca.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_bf7ca.dir/src.c.o -o cmTC_bf7ca
+        make[1]: Leaving directory '/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-jVvwFc'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/Internal/CheckSourceCompiles.cmake:81 (try_compile)"
+      - "/usr/share/cmake/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "/usr/share/cmake/Modules/CheckCCompilerFlag.cmake:105 (cmake_check_compiler_flag)"
+      - "quickjs/CMakeLists.txt:82 (check_c_compiler_flag)"
+      - "quickjs/CMakeLists.txt:99 (xcheck_add_c_compiler_flag)"
+    checks:
+      - "Performing Test COMPILER_SUPPORTS_Wnounusedparameter"
+    directories:
+      source: "/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-BBOuD3"
+      binary: "/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-BBOuD3"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "COMPILER_SUPPORTS_Wnounusedparameter"
+      cached: true
+      stdout: |
+        Change Dir: '/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-BBOuD3'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_ebddb/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_ebddb.dir/build.make CMakeFiles/cmTC_ebddb.dir/build
+        make[1]: Entering directory '/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-BBOuD3'
+        Building C object CMakeFiles/cmTC_ebddb.dir/src.c.o
+        /usr/bin/cc -DCOMPILER_SUPPORTS_Wnounusedparameter  -std=gnu11   -Wno-unused-parameter -o CMakeFiles/cmTC_ebddb.dir/src.c.o -c /home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-BBOuD3/src.c
+        Linking C executable cmTC_ebddb
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ebddb.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_ebddb.dir/src.c.o -o cmTC_ebddb
+        make[1]: Leaving directory '/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-BBOuD3'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/Internal/CheckSourceCompiles.cmake:81 (try_compile)"
+      - "/usr/share/cmake/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "/usr/share/cmake/Modules/CheckCCompilerFlag.cmake:105 (cmake_check_compiler_flag)"
+      - "quickjs/CMakeLists.txt:82 (check_c_compiler_flag)"
+      - "quickjs/CMakeLists.txt:100 (xcheck_add_c_compiler_flag)"
+    checks:
+      - "Performing Test COMPILER_SUPPORTS_Wnounusedbutsetvariable"
+    directories:
+      source: "/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-9QisXs"
+      binary: "/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-9QisXs"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "COMPILER_SUPPORTS_Wnounusedbutsetvariable"
+      cached: true
+      stdout: |
+        Change Dir: '/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-9QisXs'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_7f0d1/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_7f0d1.dir/build.make CMakeFiles/cmTC_7f0d1.dir/build
+        make[1]: Entering directory '/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-9QisXs'
+        Building C object CMakeFiles/cmTC_7f0d1.dir/src.c.o
+        /usr/bin/cc -DCOMPILER_SUPPORTS_Wnounusedbutsetvariable  -std=gnu11   -Wno-unused-but-set-variable -o CMakeFiles/cmTC_7f0d1.dir/src.c.o -c /home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-9QisXs/src.c
+        Linking C executable cmTC_7f0d1
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7f0d1.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_7f0d1.dir/src.c.o -o cmTC_7f0d1
+        make[1]: Leaving directory '/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-9QisXs'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/Internal/CheckSourceCompiles.cmake:81 (try_compile)"
+      - "/usr/share/cmake/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "/usr/share/cmake/Modules/CheckCCompilerFlag.cmake:105 (cmake_check_compiler_flag)"
+      - "quickjs/CMakeLists.txt:82 (check_c_compiler_flag)"
+      - "quickjs/CMakeLists.txt:101 (xcheck_add_c_compiler_flag)"
+    checks:
+      - "Performing Test COMPILER_SUPPORTS_Wnounusedresult"
+    directories:
+      source: "/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-QrUdPC"
+      binary: "/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-QrUdPC"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "COMPILER_SUPPORTS_Wnounusedresult"
+      cached: true
+      stdout: |
+        Change Dir: '/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-QrUdPC'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_26e5c/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_26e5c.dir/build.make CMakeFiles/cmTC_26e5c.dir/build
+        make[1]: Entering directory '/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-QrUdPC'
+        Building C object CMakeFiles/cmTC_26e5c.dir/src.c.o
+        /usr/bin/cc -DCOMPILER_SUPPORTS_Wnounusedresult  -std=gnu11   -Wno-unused-result -o CMakeFiles/cmTC_26e5c.dir/src.c.o -c /home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-QrUdPC/src.c
+        Linking C executable cmTC_26e5c
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_26e5c.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_26e5c.dir/src.c.o -o cmTC_26e5c
+        make[1]: Leaving directory '/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-QrUdPC'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/Internal/CheckSourceCompiles.cmake:81 (try_compile)"
+      - "/usr/share/cmake/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "/usr/share/cmake/Modules/CheckCCompilerFlag.cmake:105 (cmake_check_compiler_flag)"
+      - "quickjs/CMakeLists.txt:82 (check_c_compiler_flag)"
+      - "quickjs/CMakeLists.txt:102 (xcheck_add_c_compiler_flag)"
+    checks:
+      - "Performing Test COMPILER_SUPPORTS_Wnostringoptruncation"
+    directories:
+      source: "/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-1btUi9"
+      binary: "/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-1btUi9"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "COMPILER_SUPPORTS_Wnostringoptruncation"
+      cached: true
+      stdout: |
+        Change Dir: '/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-1btUi9'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_13bcd/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_13bcd.dir/build.make CMakeFiles/cmTC_13bcd.dir/build
+        make[1]: Entering directory '/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-1btUi9'
+        Building C object CMakeFiles/cmTC_13bcd.dir/src.c.o
+        /usr/bin/cc -DCOMPILER_SUPPORTS_Wnostringoptruncation  -std=gnu11   -Wno-stringop-truncation -o CMakeFiles/cmTC_13bcd.dir/src.c.o -c /home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-1btUi9/src.c
+        Linking C executable cmTC_13bcd
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_13bcd.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_13bcd.dir/src.c.o -o cmTC_13bcd
+        make[1]: Leaving directory '/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-1btUi9'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/Internal/CheckSourceCompiles.cmake:81 (try_compile)"
+      - "/usr/share/cmake/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "/usr/share/cmake/Modules/CheckCCompilerFlag.cmake:105 (cmake_check_compiler_flag)"
+      - "quickjs/CMakeLists.txt:82 (check_c_compiler_flag)"
+      - "quickjs/CMakeLists.txt:103 (xcheck_add_c_compiler_flag)"
+    checks:
+      - "Performing Test COMPILER_SUPPORTS_Wnoarraybounds"
+    directories:
+      source: "/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-GMC20W"
+      binary: "/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-GMC20W"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "COMPILER_SUPPORTS_Wnoarraybounds"
+      cached: true
+      stdout: |
+        Change Dir: '/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-GMC20W'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_be758/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_be758.dir/build.make CMakeFiles/cmTC_be758.dir/build
+        make[1]: Entering directory '/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-GMC20W'
+        Building C object CMakeFiles/cmTC_be758.dir/src.c.o
+        /usr/bin/cc -DCOMPILER_SUPPORTS_Wnoarraybounds  -std=gnu11   -Wno-array-bounds -o CMakeFiles/cmTC_be758.dir/src.c.o -c /home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-GMC20W/src.c
+        Linking C executable cmTC_be758
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_be758.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_be758.dir/src.c.o -o cmTC_be758
+        make[1]: Leaving directory '/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-GMC20W'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/Internal/CheckSourceCompiles.cmake:81 (try_compile)"
+      - "/usr/share/cmake/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "/usr/share/cmake/Modules/CheckCCompilerFlag.cmake:105 (cmake_check_compiler_flag)"
+      - "quickjs/CMakeLists.txt:82 (check_c_compiler_flag)"
+      - "quickjs/CMakeLists.txt:105 (xcheck_add_c_compiler_flag)"
+    checks:
+      - "Performing Test COMPILER_SUPPORTS_funsignedchar"
+    directories:
+      source: "/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-c03h4b"
+      binary: "/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-c03h4b"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "COMPILER_SUPPORTS_funsignedchar"
+      cached: true
+      stdout: |
+        Change Dir: '/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-c03h4b'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_3f2ee/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_3f2ee.dir/build.make CMakeFiles/cmTC_3f2ee.dir/build
+        make[1]: Entering directory '/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-c03h4b'
+        Building C object CMakeFiles/cmTC_3f2ee.dir/src.c.o
+        /usr/bin/cc -DCOMPILER_SUPPORTS_funsignedchar  -std=gnu11   -funsigned-char -o CMakeFiles/cmTC_3f2ee.dir/src.c.o -c /home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-c03h4b/src.c
+        Linking C executable cmTC_3f2ee
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3f2ee.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_3f2ee.dir/src.c.o -o cmTC_3f2ee
+        make[1]: Leaving directory '/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-c03h4b'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/Internal/CheckSourceCompiles.cmake:81 (try_compile)"
+      - "/usr/share/cmake/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "/usr/share/cmake/Modules/CheckCCompilerFlag.cmake:105 (cmake_check_compiler_flag)"
+      - "quickjs/CMakeLists.txt:82 (check_c_compiler_flag)"
+      - "quickjs/CMakeLists.txt:168 (xcheck_add_c_compiler_flag)"
+    checks:
+      - "Performing Test COMPILER_SUPPORTS_/Od"
+    directories:
+      source: "/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-vxabIM"
+      binary: "/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-vxabIM"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "COMPILER_SUPPORTS_/Od"
+      cached: true
+      stdout: |
+        Change Dir: '/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-vxabIM'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_4fe65/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_4fe65.dir/build.make CMakeFiles/cmTC_4fe65.dir/build
+        make[1]: Entering directory '/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-vxabIM'
+        Building C object CMakeFiles/cmTC_4fe65.dir/src.c.o
+        /usr/bin/cc   -std=gnu11   -DCOMPILER_SUPPORTS_/Od /Od -o CMakeFiles/cmTC_4fe65.dir/src.c.o -c /home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-vxabIM/src.c
+        <command-line>: warning: ISO C99 requires whitespace after the macro name
+        cc: warning: /Od: linker input file unused because linking not done
+        cc: error: /Od: linker input file not found: No such file or directory
+        make[1]: *** [CMakeFiles/cmTC_4fe65.dir/build.make:81: CMakeFiles/cmTC_4fe65.dir/src.c.o] Error 1
+        make[1]: *** Deleting file 'CMakeFiles/cmTC_4fe65.dir/src.c.o'
+        make[1]: Leaving directory '/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-vxabIM'
+        make: *** [Makefile:134: cmTC_4fe65/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/Internal/CheckSourceCompiles.cmake:81 (try_compile)"
+      - "/usr/share/cmake/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "/usr/share/cmake/Modules/CheckCCompilerFlag.cmake:105 (cmake_check_compiler_flag)"
+      - "quickjs/CMakeLists.txt:82 (check_c_compiler_flag)"
+      - "quickjs/CMakeLists.txt:169 (xcheck_add_c_compiler_flag)"
+    checks:
+      - "Performing Test COMPILER_SUPPORTS_O0"
+    directories:
+      source: "/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-tZUCTo"
+      binary: "/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-tZUCTo"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "COMPILER_SUPPORTS_O0"
+      cached: true
+      stdout: |
+        Change Dir: '/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-tZUCTo'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_69f80/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_69f80.dir/build.make CMakeFiles/cmTC_69f80.dir/build
+        make[1]: Entering directory '/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-tZUCTo'
+        Building C object CMakeFiles/cmTC_69f80.dir/src.c.o
+        /usr/bin/cc -DCOMPILER_SUPPORTS_O0  -std=gnu11   -O0 -o CMakeFiles/cmTC_69f80.dir/src.c.o -c /home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-tZUCTo/src.c
+        Linking C executable cmTC_69f80
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_69f80.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_69f80.dir/src.c.o -o cmTC_69f80
+        make[1]: Leaving directory '/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-tZUCTo'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/Internal/CheckSourceCompiles.cmake:81 (try_compile)"
+      - "/usr/share/cmake/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "/usr/share/cmake/Modules/CheckCCompilerFlag.cmake:105 (cmake_check_compiler_flag)"
+      - "quickjs/CMakeLists.txt:82 (check_c_compiler_flag)"
+      - "quickjs/CMakeLists.txt:170 (xcheck_add_c_compiler_flag)"
+    checks:
+      - "Performing Test COMPILER_SUPPORTS_ggdb"
+    directories:
+      source: "/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-0z9cBc"
+      binary: "/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-0z9cBc"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "COMPILER_SUPPORTS_ggdb"
+      cached: true
+      stdout: |
+        Change Dir: '/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-0z9cBc'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_9eba1/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_9eba1.dir/build.make CMakeFiles/cmTC_9eba1.dir/build
+        make[1]: Entering directory '/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-0z9cBc'
+        Building C object CMakeFiles/cmTC_9eba1.dir/src.c.o
+        /usr/bin/cc -DCOMPILER_SUPPORTS_ggdb  -std=gnu11   -ggdb -o CMakeFiles/cmTC_9eba1.dir/src.c.o -c /home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-0z9cBc/src.c
+        Linking C executable cmTC_9eba1
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9eba1.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_9eba1.dir/src.c.o -o cmTC_9eba1
+        make[1]: Leaving directory '/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-0z9cBc'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/Internal/CheckSourceCompiles.cmake:81 (try_compile)"
+      - "/usr/share/cmake/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "/usr/share/cmake/Modules/CheckCCompilerFlag.cmake:105 (cmake_check_compiler_flag)"
+      - "quickjs/CMakeLists.txt:82 (check_c_compiler_flag)"
+      - "quickjs/CMakeLists.txt:171 (xcheck_add_c_compiler_flag)"
+    checks:
+      - "Performing Test COMPILER_SUPPORTS_fnoomitframepointer"
+    directories:
+      source: "/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-hC5jv0"
+      binary: "/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-hC5jv0"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "COMPILER_SUPPORTS_fnoomitframepointer"
+      cached: true
+      stdout: |
+        Change Dir: '/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-hC5jv0'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_ff379/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_ff379.dir/build.make CMakeFiles/cmTC_ff379.dir/build
+        make[1]: Entering directory '/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-hC5jv0'
+        Building C object CMakeFiles/cmTC_ff379.dir/src.c.o
+        /usr/bin/cc -DCOMPILER_SUPPORTS_fnoomitframepointer  -std=gnu11   -fno-omit-frame-pointer -o CMakeFiles/cmTC_ff379.dir/src.c.o -c /home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-hC5jv0/src.c
+        Linking C executable cmTC_ff379
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ff379.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_ff379.dir/src.c.o -o cmTC_ff379
+        make[1]: Leaving directory '/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-hC5jv0'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/Internal/CheckSourceCompiles.cmake:81 (try_compile)"
+      - "/usr/share/cmake/Modules/CheckCSourceCompiles.cmake:103 (cmake_check_source_compiles)"
+      - "/usr/share/cmake/Modules/FindThreads.cmake:160 (check_c_source_compiles)"
+      - "/usr/share/cmake/Modules/FindThreads.cmake:226 (_threads_check_libc)"
+      - "quickjs/CMakeLists.txt:277 (find_package)"
+    checks:
+      - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
+    directories:
+      source: "/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-2tmTYe"
+      binary: "/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-2tmTYe"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_HAVE_LIBC_PTHREAD"
+      cached: true
+      stdout: |
+        Change Dir: '/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-2tmTYe'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_cf0ca/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_cf0ca.dir/build.make CMakeFiles/cmTC_cf0ca.dir/build
+        make[1]: Entering directory '/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-2tmTYe'
+        Building C object CMakeFiles/cmTC_cf0ca.dir/src.c.o
+        /usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD  -std=gnu11 -o CMakeFiles/cmTC_cf0ca.dir/src.c.o -c /home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-2tmTYe/src.c
+        Linking C executable cmTC_cf0ca
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cf0ca.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_cf0ca.dir/src.c.o -o cmTC_cf0ca
+        make[1]: Leaving directory '/home/cmach_socket/projects/flutter_netease_music/MusicLibrary/build-host/CMakeFiles/CMakeScratch/TryCompile-2tmTYe'
+        
+      exitCode: 0
+  -
+    kind: "find-v1"
+    backtrace:
+      - "quickjs/CMakeLists.txt:283 (find_library)"
+    mode: "library"
+    variable: "M_LIBRARIES"
+    description: "Path to a library."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "m"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/local/bin/"
+      - "/home/cmach_socket/.local/bin/"
+      - "/home/cmach_socket/.npm-global/bin/"
+      - "/home/cmach_socket/bin/"
+      - "/home/cmach_socket/.nix-profile/bin/"
+      - "/home/cmach_socket/.yarn/bin/"
+      - "/usr/local/sbin/"
+      - "/opt/android-ndk/"
+      - "/opt/android-sdk/cmdline-tools/latest/bin/"
+      - "/opt/android-sdk/platform-tools/"
+      - "/opt/android-sdk/tools/"
+      - "/opt/android-sdk/tools/bin/"
+      - "/opt/cuda/bin/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/usr/lib/rustup/bin/"
+      - "/usr/local/lib/"
+      - "/usr/local/"
+      - "/usr/lib/"
+      - "/usr/"
+      - "/lib/"
+      - "/usr/X11R6/lib/"
+      - "/usr/X11R6/"
+      - "/usr/pkg/lib/"
+      - "/usr/pkg/"
+      - "/opt/lib/"
+      - "/opt/"
+      - "/usr/lib/X11/"
+    searched_directories:
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/local/bin/"
+      - "/home/cmach_socket/.local/bin/"
+      - "/home/cmach_socket/.npm-global/bin/"
+      - "/home/cmach_socket/bin/"
+      - "/home/cmach_socket/.nix-profile/bin/"
+      - "/home/cmach_socket/.yarn/bin/"
+      - "/usr/local/sbin/"
+      - "/opt/android-ndk/"
+      - "/opt/android-sdk/cmdline-tools/latest/bin/"
+      - "/opt/android-sdk/platform-tools/"
+      - "/opt/android-sdk/tools/"
+      - "/opt/android-sdk/tools/bin/"
+      - "/opt/cuda/bin/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/usr/lib/rustup/bin/"
+      - "/usr/local/lib/"
+      - "/usr/local/"
+    found: "/usr/lib/libm.so"
+    search_context:
+      ENV{PATH}:
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/local/bin"
+        - "/home/cmach_socket/.local/bin"
+        - "/home/cmach_socket/.npm-global/bin"
+        - "/home/cmach_socket/bin"
+        - "/home/cmach_socket/.nix-profile/bin"
+        - "/home/cmach_socket/.yarn/bin"
+        - "/usr/local/sbin"
+        - "/opt/android-ndk"
+        - "/opt/android-sdk/cmdline-tools/latest/bin"
+        - "/opt/android-sdk/platform-tools"
+        - "/opt/android-sdk/tools"
+        - "/opt/android-sdk/tools/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/usr/lib/rustup/bin"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/usr"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/FindPkgConfig.cmake:517 (find_program)"
+      - "CMakeLists.txt:85 (find_package)"
+    mode: "program"
+    variable: "PKG_CONFIG_EXECUTABLE"
+    description: "pkg-config executable"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "pkg-config"
+      - "pkgconf"
+    candidate_directories:
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/local/bin/"
+      - "/home/cmach_socket/.local/bin/"
+      - "/home/cmach_socket/.npm-global/bin/"
+      - "/home/cmach_socket/bin/"
+      - "/home/cmach_socket/.nix-profile/bin/"
+      - "/home/cmach_socket/.yarn/bin/"
+      - "/usr/local/sbin/"
+      - "/opt/android-ndk/"
+      - "/opt/android-sdk/cmdline-tools/latest/bin/"
+      - "/opt/android-sdk/platform-tools/"
+      - "/opt/android-sdk/tools/"
+      - "/opt/android-sdk/tools/bin/"
+      - "/opt/cuda/bin/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/usr/lib/rustup/bin/"
+      - "/usr/local/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/"
+      - "/usr/bin/"
+      - "/usr/sbin/"
+      - "/usr/"
+      - "/bin/"
+      - "/sbin/"
+      - "/usr/X11R6/bin/"
+      - "/usr/X11R6/sbin/"
+      - "/usr/X11R6/"
+      - "/usr/pkg/bin/"
+      - "/usr/pkg/sbin/"
+      - "/usr/pkg/"
+      - "/opt/bin/"
+      - "/opt/sbin/"
+      - "/opt/"
+    found: "/usr/bin/pkg-config"
+    search_context:
+      ENV{PATH}:
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/local/bin"
+        - "/home/cmach_socket/.local/bin"
+        - "/home/cmach_socket/.npm-global/bin"
+        - "/home/cmach_socket/bin"
+        - "/home/cmach_socket/.nix-profile/bin"
+        - "/home/cmach_socket/.yarn/bin"
+        - "/usr/local/sbin"
+        - "/opt/android-ndk"
+        - "/opt/android-sdk/cmdline-tools/latest/bin"
+        - "/opt/android-sdk/platform-tools"
+        - "/opt/android-sdk/tools"
+        - "/opt/android-sdk/tools/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/usr/lib/rustup/bin"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/usr"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/FindPkgConfig.cmake:761 (find_library)"
+      - "/usr/share/cmake/Modules/FindPkgConfig.cmake:811 (_pkg_find_libs)"
+      - "/usr/share/cmake/Modules/FindPkgConfig.cmake:1149 (_pkg_recalculate)"
+      - "/usr/share/cmake/Modules/FindPkgConfig.cmake:1166 (_pkg_check_modules_internal)"
+      - "CMakeLists.txt:86 (pkg_check_modules)"
+    mode: "library"
+    variable: "pkgcfg_lib_CURL_curl"
+    description: "Path to a library."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "curl"
+    candidate_directories:
+      - "/usr/lib/"
+    found: "/usr/lib/libcurl.so"
+    search_context:
+      ENV{PATH}:
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/local/bin"
+        - "/home/cmach_socket/.local/bin"
+        - "/home/cmach_socket/.npm-global/bin"
+        - "/home/cmach_socket/bin"
+        - "/home/cmach_socket/.nix-profile/bin"
+        - "/home/cmach_socket/.yarn/bin"
+        - "/usr/local/sbin"
+        - "/opt/android-ndk"
+        - "/opt/android-sdk/cmdline-tools/latest/bin"
+        - "/opt/android-sdk/platform-tools"
+        - "/opt/android-sdk/tools"
+        - "/opt/android-sdk/tools/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/usr/lib/rustup/bin"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/usr"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+...
