@@ -36,7 +36,7 @@ target_link_libraries(MyTests
 
 # 如果测试代码中需要 include 路径（通常已经通过目标传递），
 # 但有时可能需要显式添加（比如测试框架本身不需要）
-# target_include_directories(MyTests PRIVATE ${CMAKE_SOURCE_DIR}/src/include)
+# target_include_directories(MyTests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src/include)
 
 # -------- 让 CTest 自动发现所有测试用例 --------
 include(GoogleTest)

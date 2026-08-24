@@ -73,9 +73,9 @@ set(NCM_JS_VERSION_PATCH ${CMAKE_MATCH_3})
 set(NCM_JS_VERSION "${NCM_JS_VERSION_MAJOR}.${NCM_JS_VERSION_MINOR}.${NCM_JS_VERSION_PATCH}")
 
 set(ENGINE_LIB_SOURCES
-    ${CMAKE_SOURCE_DIR}/src/c/engine.c
-    ${CMAKE_SOURCE_DIR}/src/c/http.c
-    ${CMAKE_SOURCE_DIR}/src/c/tinycthread.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/c/engine.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/c/http.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/c/tinycthread.c
 )
 
 # ========== INTERFACE 库 - 存放公共配置 ==========
@@ -116,7 +116,7 @@ if(MUSICLIBRARY_BUILD_ENGINE)
     if(WIN32)
         # 设置 Windows 平台特有的属性
         set_target_properties(engine PROPERTIES
-            LINK_FLAGS "/DEF:${CMAKE_SOURCE_DIR}/src/def/engine.def"
+            LINK_FLAGS "/DEF:${CMAKE_CURRENT_SOURCE_DIR}/src/def/engine.def"
         )
         target_compile_definitions(engine PUBLIC KUGOU_MUSIC_API_EXPORTS)
     endif()
@@ -124,12 +124,12 @@ endif()
 
 
 # ========== 公共源文件 ==========
-# file(GLOB BUNDLE_C_FILES "${CMAKE_SOURCE_DIR}/bundle/c/*.c")
+# file(GLOB BUNDLE_C_FILES "${CMAKE_CURRENT_SOURCE_DIR}/bundle/c/*.c")
 
 set(KUGOU_LIB_SOURCES
-    ${CMAKE_SOURCE_DIR}/src/c/kugou/main.c
-    ${CMAKE_SOURCE_DIR}/src/c/kugou/extension.c
-    ${CMAKE_SOURCE_DIR}/bundle/c/kugou_music_api_bundle.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/c/kugou/main.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/c/kugou/extension.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/bundle/c/kugou_music_api_bundle.c
 )
 
 if(MUSICLIBRARY_BUILD_KUGOU)
@@ -137,7 +137,7 @@ if(MUSICLIBRARY_BUILD_KUGOU)
     add_library(kugou_music_api_static STATIC EXCLUDE_FROM_ALL ${KUGOU_LIB_SOURCES})
     target_link_libraries(kugou_music_api_static PUBLIC engine)
     target_include_directories(kugou_music_api_static PUBLIC
-        ${CMAKE_SOURCE_DIR}/src/include
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/include
     )
 
     # ========== KouGou SHARED 库 ==========
@@ -147,14 +147,14 @@ if(MUSICLIBRARY_BUILD_KUGOU)
         RUNTIME_OUTPUT_DIRECTORY ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}
     )
     target_include_directories(kugou_music_api PUBLIC
-        ${CMAKE_SOURCE_DIR}/src/include
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/include
     )
 
 
     if(WIN32)
         # 设置 Windows 平台特有的属性
         set_target_properties(kugou_music_api PROPERTIES
-            LINK_FLAGS "/DEF:${CMAKE_SOURCE_DIR}/src/def/kugou_music_api.def"
+            LINK_FLAGS "/DEF:${CMAKE_CURRENT_SOURCE_DIR}/src/def/kugou_music_api.def"
         )
         target_compile_definitions(kugou_music_api PUBLIC KUGOU_MUSIC_API_EXPORTS)
     endif()
@@ -166,7 +166,7 @@ endif()
 # set(Python3_LIBRARIES "D:/program/pyenv/pyenv-win/versions/3.11.9/libs/python311.lib")
 # include_directories(${Python3_INCLUDE_DIRS} src/include)
 # add_library(kugou_music_api_python MODULE
-#     ${CMAKE_SOURCE_DIR}/bindings/python/kugou_music_api_wrap.c
+#     ${CMAKE_CURRENT_SOURCE_DIR}/bindings/python/kugou_music_api_wrap.c
 #     ${KUGOU_LIB_SOURCES}
 #     # 其他源文件
 # )
@@ -182,9 +182,9 @@ endif()
 
 
 set(NCM_LIB_SOURCES
-    ${CMAKE_SOURCE_DIR}/src/c/ncm/main.c
-    ${CMAKE_SOURCE_DIR}/src/c/ncm/extension.c
-    ${CMAKE_SOURCE_DIR}/bundle/c/ncm_music_api_bundle.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/c/ncm/main.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/c/ncm/extension.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/bundle/c/ncm_music_api_bundle.c
 )
 
 if(MUSICLIBRARY_BUILD_NCM)
@@ -192,7 +192,7 @@ if(MUSICLIBRARY_BUILD_NCM)
     add_library(ncm_music_api_static STATIC EXCLUDE_FROM_ALL ${NCM_LIB_SOURCES})
     target_link_libraries(ncm_music_api_static PUBLIC engine)
     target_include_directories(ncm_music_api_static PUBLIC
-        ${CMAKE_SOURCE_DIR}/src/include
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/include
     )
 
     # ========== NCM SHARED 库 ==========
@@ -202,14 +202,14 @@ if(MUSICLIBRARY_BUILD_NCM)
         RUNTIME_OUTPUT_DIRECTORY ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}
     )
     target_include_directories(ncm_music_api PUBLIC
-        ${CMAKE_SOURCE_DIR}/src/include
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/include
     )
 
 
     if(WIN32)
         # 设置 Windows 平台特有的属性
         set_target_properties(ncm_music_api PROPERTIES
-            LINK_FLAGS "/DEF:${CMAKE_SOURCE_DIR}/src/def/ncm_music_api.def"
+            LINK_FLAGS "/DEF:${CMAKE_CURRENT_SOURCE_DIR}/src/def/ncm_music_api.def"
         )
         target_compile_definitions(ncm_music_api PUBLIC KUGOU_MUSIC_API_EXPORTS)
     endif()
