@@ -150,6 +150,21 @@ for (const abi of abis) {
   // 同时塞 prefab libcurl.so,让 plugin 直接 copy 整套 (覆盖 apk libs/<abi>/)
   fs.copyFileSync(curlLib, path.join(abiDist, "libcurl.so"));
   console.log(`  ${abi}/libcurl.so`);
+
+  // 2026-08-25: libcurl.so 运行时依赖 libssl.so / libcrypto.so (NDK prefab openssl 包),
+  // 必须跟 libcurl.so 一起进 APK jniLibs/。AGP prefab 在 plugin 没 native build 时
+  // 不会自动转写 .so 到 APK, 所以走预编译嵌入路径。
+  // prefab 拆 modules: ssl/ + crypto/。
+  const sslLib = path.join(PREFAB_ROOT, "modules", "ssl", "libs", `android.${abi}`, "libssl.so");
+  const cryptoLib = path.join(PREFAB_ROOT, "modules", "crypto", "libs", `android.${abi}`, "libcrypto.so");
+  for (const [name, p] of [["libssl.so", sslLib], ["libcrypto.so", cryptoLib]]) {
+    if (!fs.existsSync(p)) {
+      console.error(`❌ 找不到 prefab ${name} for ${abi}: ${p}`);
+      process.exit(1);
+    }
+    fs.copyFileSync(p, path.join(abiDist, name));
+    console.log(`  ${abi}/${name}`);
+  }
 }
 
 // ---------- 完成 ----------

@@ -1,39 +1,90 @@
 #!/usr/bin/env node
 // fetch.js
-// 下载并解包 Android NDK 官方 prefab curl 包,提供:
-//   - prefab/modules/curl/include/  (NDK 兼容的 curl headers)
-//   - prefab/modules/curl/libs/android.<abi>/libcurl.so (运行时链接)
+// 下载并解包 Android NDK 官方 prefab 包,提供 build/runtime 需要的 .so 和 headers。
 //
-// 用途:MusicLibrary Android build 用 prefab headers 编译,plugin 用 prefab .so 链接运行时。
-// 复用 AGP prefab 的同一个包 (com.android.ndk.thirdparty:curl:7.85.0-beta-1),
-// 保证 APK 里 dlsym 行为跟 AGP prefab 一致。
+// 当前依赖的 prefab 包:
+//   - com.android.ndk.thirdparty:curl:7.85.0-beta-1
+//       headers: scripts/android-prefab/prefab/modules/curl/include/curl/
+//       libs:    scripts/android-prefab/prefab/modules/curl/libs/android.<abi>/libcurl.so
+//   - com.android.ndk.thirdparty:openssl:1.1.1l-beta-1
+//       libs:    scripts/android-prefab/prefab/modules/openssl/libs/android.<abi>/libssl.so + libcrypto.so
 //
-// 跨平台 (Linux/macOS/Windows runners 都跑):用 unzip + curl 系统命令(Git for Windows 自带),
-// 跟项目其它 JS 脚本 (pull_ncm.js 等) 风格一致。
+// 用途:
+//   - libcurl.so 编译期需要 curl/curl.h 头 (用 prefab headers, NDK 兼容)
+//   - libcurl.so 运行时依赖 libssl.so / libcrypto.so (必须跟 libcurl.so 一起进 APK)
+//   - 三个 .so 都被 build-android.js 当作 prefab 产物,跟 MusicLibrary 的 .so 一起
+//     塞进 plugin 的 jniLibs/<abi>/。
+//
+// 跨平台 (Linux/macOS/Windows runners 都跑):用 unzip + curl 系统命令
+// (Git for Windows 自带),跟项目其它 JS 脚本 (pull_ncm.js 等) 风格一致。
+
 const { execSync } = require("child_process");
 const fs = require("fs");
 const path = require("path");
 
 const ROOT = path.resolve(__dirname);
-const CURL_VERSION = "7.85.0-beta-1";
-const AAR_NAME = `curl-${CURL_VERSION}.aar`;
-const AAR_URL = `https://dl.google.com/android/maven2/com/android/ndk/thirdparty/curl/${CURL_VERSION}/${AAR_NAME}`;
-const CACHE_FILE = path.join(ROOT, AAR_NAME);
-const PREFAB_DIR = path.join(ROOT, "prefab");
-const MARKER = path.join(PREFAB_DIR, "modules", "curl", "libs", "android.arm64-v8a", "libcurl.so");
 
-if (fs.existsSync(MARKER)) {
-  console.log(`[prefab] already cached at ${PREFAB_DIR}, skip download`);
-  process.exit(0);
+// ===== 配置:prefab 包列表 =====
+const PACKAGES = [
+  {
+    name: "curl",
+    version: "7.85.0-beta-1",
+    markerLib: "libcurl.so",
+    // extractOnly = 只解 prefab/ 子目录;headers 后续会被 build-android.js 用到
+    extractOnly: "prefab/*",
+  },
+  {
+    name: "openssl",
+    version: "1.1.1l-beta-1",
+    markerLib: "libssl.so",
+    // 解 prefab/ (跟 curl 同结构)
+    extractOnly: "prefab/*",
+  },
+];
+
+const PREFAB_DIR = path.join(ROOT, "prefab");
+
+/**
+ * 下载并解包单个 prefab 包 (.aar)
+ * @returns {boolean} true = 新下载;false = 已缓存,跳过
+ */
+function fetchOne(pkg) {
+  const marker = path.join(
+    PREFAB_DIR,
+    "modules",
+    pkg.name,
+    "libs",
+    "android.arm64-v8a",
+    pkg.markerLib,
+  );
+  if (fs.existsSync(marker)) {
+    return false; // 已缓存
+  }
+
+  const aarName = `${pkg.name}-${pkg.version}.aar`;
+  const url = `https://dl.google.com/android/maven2/com/android/ndk/thirdparty/${pkg.name}/${pkg.version}/${aarName}`;
+  const cache = path.join(ROOT, aarName);
+
+  console.log(`[prefab:${pkg.name}] downloading ${url}`);
+  execSync(`curl -fsSL -o "${cache}" "${url}"`, { stdio: "inherit" });
+
+  console.log(`[prefab:${pkg.name}] extracting ${pkg.extractOnly}...`);
+  execSync(`unzip -qo "${cache}" "${pkg.extractOnly}" -d "${ROOT}"`, {
+    stdio: "inherit",
+  });
+  fs.unlinkSync(cache);
+  return true;
 }
 
-console.log(`[prefab] downloading ${AAR_URL}`);
-execSync(`curl -fsSL -o "${CACHE_FILE}" "${AAR_URL}"`, { stdio: "inherit" });
+let anyNewDownload = false;
+for (const pkg of PACKAGES) {
+  if (fetchOne(pkg)) anyNewDownload = true;
+}
 
-console.log("[prefab] extracting...");
-// 只解 prefab/ 子目录;AndroidManifest.xml 和 META-INF/ 是 aar 包的签名,没用。
-execSync(`unzip -qo "${CACHE_FILE}" "prefab/*" -d "${ROOT}"`, { stdio: "inherit" });
-fs.unlinkSync(CACHE_FILE);
+if (!anyNewDownload) {
+  console.log(`[prefab] all packages already cached at ${PREFAB_DIR}, skip`);
+  process.exit(0);
+}
 
 console.log("[prefab] done, structure:");
 function list(dir, prefix = "") {
