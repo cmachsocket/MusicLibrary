@@ -77,8 +77,12 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
-          architecture: ${{ matrix.architecture }}
+          # 2026-08-25: Node 20 被 GitHub Actions runner 弃用,升到 24 (runner 默认)。
+          # architecture 不再传: Android matrix entries (arm64-v8a / armeabi-v7a / ...)
+          # 是 Android ABI 名, 不是 Node CPU arch, setup-node 不该关心,
+          # 传过去会让 setup-node 去下载 "Node 24 for android-arm64" 然后报
+          # "Unable to find Node version ... for platform linux and architecture armeabi-v7a"。
+          node-version: "24"
           cache: "pnpm"
       
       - name: Pull NCM project submodule
