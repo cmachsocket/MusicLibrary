@@ -111,6 +111,66 @@
         "CMAKE_CXX_FLAGS": "-O2 -Wall",
         "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
       }
+    },
+    {
+      "name": "android-arm64-v8a",
+      "displayName": "Android arm64-v8a (NDK)",
+      "description": "Configure using Android NDK toolchain for arm64-v8a (API 23+)",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/android/arm64-v8a/${presetName}",
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": "$env{ANDROID_NDK_HOME}/build/cmake/android.toolchain.cmake",
+        "ANDROID_ABI": "arm64-v8a",
+        "ANDROID_PLATFORM": "android-23",
+        "CMAKE_BUILD_TYPE": "Release",
+        "BUILD_SHARED_LIBS": "ON",
+        "CMAKE_C_FLAGS": "-fPIC -O2 -Wall"
+      }
+    },
+    {
+      "name": "android-x86_64",
+      "displayName": "Android x86_64 (NDK)",
+      "description": "Configure using Android NDK toolchain for x86_64 (API 23+)",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/android/x86_64/${presetName}",
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": "$env{ANDROID_NDK_HOME}/build/cmake/android.toolchain.cmake",
+        "ANDROID_ABI": "x86_64",
+        "ANDROID_PLATFORM": "android-23",
+        "CMAKE_BUILD_TYPE": "Release",
+        "BUILD_SHARED_LIBS": "ON",
+        "CMAKE_C_FLAGS": "-fPIC -O2 -Wall"
+      }
+    },
+    {
+      "name": "android-armeabi-v7a",
+      "displayName": "Android armeabi-v7a (NDK)",
+      "description": "Configure using Android NDK toolchain for armeabi-v7a (API 23+)",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/android/armeabi-v7a/${presetName}",
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": "$env{ANDROID_NDK_HOME}/build/cmake/android.toolchain.cmake",
+        "ANDROID_ABI": "armeabi-v7a",
+        "ANDROID_PLATFORM": "android-23",
+        "CMAKE_BUILD_TYPE": "Release",
+        "BUILD_SHARED_LIBS": "ON",
+        "CMAKE_C_FLAGS": "-fPIC -O2 -Wall"
+      }
+    },
+    {
+      "name": "android-x86",
+      "displayName": "Android x86 (NDK)",
+      "description": "Configure using Android NDK toolchain for x86 (API 23+)",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/android/x86/${presetName}",
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": "$env{ANDROID_NDK_HOME}/build/cmake/android.toolchain.cmake",
+        "ANDROID_ABI": "x86",
+        "ANDROID_PLATFORM": "android-23",
+        "CMAKE_BUILD_TYPE": "Release",
+        "BUILD_SHARED_LIBS": "ON",
+        "CMAKE_C_FLAGS": "-fPIC -O2 -Wall"
+      }
     }
   ],
   "buildPresets": [
@@ -157,6 +217,26 @@
     {
       "name": "macos-arm64-clang-Release",
       "configurePreset": "macos-arm64-clang",
+      "configuration": "Release"
+    },
+    {
+      "name": "android-arm64-v8a-Release",
+      "configurePreset": "android-arm64-v8a",
+      "configuration": "Release"
+    },
+    {
+      "name": "android-x86_64-Release",
+      "configurePreset": "android-x86_64",
+      "configuration": "Release"
+    },
+    {
+      "name": "android-armeabi-v7a-Release",
+      "configurePreset": "android-armeabi-v7a",
+      "configuration": "Release"
+    },
+    {
+      "name": "android-x86-Release",
+      "configurePreset": "android-x86",
       "configuration": "Release"
     }
   ],

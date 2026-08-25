@@ -22,3 +22,9 @@ NeteaseCloudMusicApi/
 NeteaseCloudMusicApi-*.tgz
 
 bindings/
+
+# ============ Android NDK build (2026-08-25) ============
+# scripts/android-prefab/ 里 fetch.js / CMakeLists.txt 是源码,需 commit;
+# prefab/ 子目录是 build 时从 maven.google.com 下载的缓存 (com.android.ndk.thirdparty:curl .aar),
+# 不要 commit (~2.4 MB / 运行时由 plugin Gradle prefab 供应)。
+scripts/android-prefab/prefab/

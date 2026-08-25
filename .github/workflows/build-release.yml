@@ -41,6 +41,28 @@ jobs:
             platform: macos
             architecture: arm64
             preset: macos-arm64-clang
+          # 2026-08-25: Android NDK 预编译 job。
+          # 跟其它平台共享 build -> upload artifact -> zip -> release 流水线,
+          # 产物 zip 里 lib/<abi>/{libncm_music_api,libengine,libqjs,libcurl}.so。
+          # 跟 consumer 侧 NeteaseCloudMusic_PythonSDK 的 setLibArch.py android64 等
+          # 解压到 plugin jniLibs 的流程匹配。
+          # NDK r29 (跟本地 build 一致),cmake 3.22 (apt 源),ninja。
+          - os: ubuntu-22.04
+            platform: android
+            architecture: arm64-v8a
+            abi: arm64-v8a
+          - os: ubuntu-22.04
+            platform: android
+            architecture: x86_64
+            abi: x86_64
+          - os: ubuntu-22.04
+            platform: android
+            architecture: armeabi-v7a
+            abi: armeabi-v7a
+          - os: ubuntu-22.04
+            platform: android
+            architecture: x86
+            abi: x86
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -78,6 +100,30 @@ jobs:
             pkg-config \
             libcurl4-openssl-dev
 
+      # 2026-08-25: Android job 跳过 JS bundle / vcpkg / preset 那一套,
+      # 直接装 NDK + cmake + ninja 走 scripts/build-android.sh。
+      - name: Install Android NDK + build tools (Android)
+        if: matrix.platform == 'android'
+        uses: android-actions/setup-android@v3
+        with:
+          # 装最新 command-line tools + 接受 license
+          cmdline-tools-version: '11076708'
+
+      - name: Install NDK + cmake + ninja (Android)
+        if: matrix.platform == 'android'
+        run: |
+          set -euo pipefail
+          yes | sdkmanager --licenses > /dev/null
+          sdkmanager --install \
+            "ndk;29.0.14206865" \
+            "cmake;3.22.1" \
+            "build-tools;36.0.0" \
+            "platform-tools"
+          # 验证一下
+          ls "$ANDROID_HOME/ndk/29.0.14206865/build/cmake/android.toolchain.cmake"
+          ls "$ANDROID_HOME/cmake/3.22.1/bin/cmake"
+          ninja --version || sudo apt-get install -y ninja-build
+
       - name: Install system dependencies (macOS)
         if: matrix.platform == 'macos'
         run: |
@@ -112,16 +158,35 @@ jobs:
           VCPKG_ROOT: ${{ github.workspace }}/vcpkg
 
       - name: Configure CMake (Linux/macOS)
-        if: matrix.platform != 'windows'
+        if: matrix.platform != 'windows' && matrix.platform != 'android'
         run: cmake --preset ${{ matrix.preset }}
 
       - name: Build qjsc target
+        if: matrix.platform != 'android'
         run: cmake --build --preset ${{ matrix.preset }}-Release --target qjsc
 
       - name: Build main target
+        if: matrix.platform != 'android'
         run: cmake --build --preset ${{ matrix.preset }}-Release${{ matrix.platform == 'linux' && ' -j$(nproc)' || matrix.platform == 'macos' && ' -j$(sysctl -n hw.ncpu)' || '' }}
 
+      # 2026-08-25: Android NDK build,跟 desktop / windows 完全不同的流水线。
+      # 走 scripts/build-android.js (单 ABI),产出 build/android/dist/<abi>/lib*.so。
+      # 同样 upload 到 artifact,release job 下载后 zip。
+      # 用 Node.js 跟项目一致 (pull_ncm.js / js_to_header.js / webpack.config.js),
+      # 在 Windows runner 上无需 bash/Git Bash。
+      - name: Build Android NDK (ncm_music_api + engine + kugou)
+        if: matrix.platform == 'android'
+        run: ANDROID_NDK_HOME="$ANDROID_HOME/ndk/29.0.14206865" node scripts/build-android.js ${{ matrix.abi }}
+
+      - name: Upload Android ABI artifact
+        if: matrix.platform == 'android'
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-${{ matrix.architecture }}-release
+          path: build/android/dist/${{ matrix.abi }}/*
+
       - name: Upload artifacts
+        if: matrix.platform != 'android'
         uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.platform }}-${{ matrix.architecture }}-release
@@ -178,6 +243,33 @@ jobs:
           name: macos-arm64-release
           path: artifacts/macos-arm64
 
+      # 2026-08-25: 下载 Android 4 ABI 的 artifact,分别 zip。
+      # zip 名跟 desktop 约定一致:android-<abi>-<tag>.zip, NDK name 是小写 abi 名
+      # (跟 build-android.sh 输出目录名一致)。
+      - name: Download Android arm64-v8a artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: android-arm64-v8a-release
+          path: artifacts/android-arm64-v8a
+
+      - name: Download Android x86_64 artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: android-x86_64-release
+          path: artifacts/android-x86_64
+
+      - name: Download Android armeabi-v7a artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: android-armeabi-v7a-release
+          path: artifacts/android-armeabi-v7a
+
+      - name: Download Android x86 artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: android-x86-release
+          path: artifacts/android-x86
+
       - name: Zip Windows x64 artifacts
         run: cd artifacts/windows-x64 && zip -r ../windows-x64-${{ github.ref_name }}.zip ./*
 
@@ -199,6 +291,47 @@ jobs:
       - name: Zip macOS arm64 artifacts
         run: cd artifacts/macos-arm64 && zip -r ../macos-arm64-${{ github.ref_name }}.zip ./*
 
+      # 2026-08-25: Android zip 包装。zip 里 lib/<abi>/{lib*.so} 跟 setLibArch.py android* 分支兼容。
+      - name: Zip Android arm64-v8a artifacts
+        run: |
+          set -euo pipefail
+          shopt -s nullglob
+          cd artifacts/android-arm64-v8a
+          mkdir -p lib/arm64-v8a
+          cp *.so lib/arm64-v8a/
+          cd ..
+          zip -r android-arm64-v8a-${{ github.ref_name }}.zip android-arm64-v8a/lib/*
+
+      - name: Zip Android x86_64 artifacts
+        run: |
+          set -euo pipefail
+          shopt -s nullglob
+          cd artifacts/android-x86_64
+          mkdir -p lib/x86_64
+          cp *.so lib/x86_64/
+          cd ..
+          zip -r android-x86_64-${{ github.ref_name }}.zip android-x86_64/lib/*
+
+      - name: Zip Android armeabi-v7a artifacts
+        run: |
+          set -euo pipefail
+          shopt -s nullglob
+          cd artifacts/android-armeabi-v7a
+          mkdir -p lib/armeabi-v7a
+          cp *.so lib/armeabi-v7a/
+          cd ..
+          zip -r android-armeabi-v7a-${{ github.ref_name }}.zip android-armeabi-v7a/lib/*
+
+      - name: Zip Android x86 artifacts
+        run: |
+          set -euo pipefail
+          shopt -s nullglob
+          cd artifacts/android-x86
+          mkdir -p lib/x86
+          cp *.so lib/x86/
+          cd ..
+          zip -r android-x86-${{ github.ref_name }}.zip android-x86/lib/*
+
       - name: Generate release body
         run: |
           cat << 'EOF' > release_body.md
@@ -213,10 +346,19 @@ jobs:
           | linux-arm64 | ARM64 Linux (Ubuntu 24.04 ARM) |
           | macos-x64 | 64-bit macOS (Intel) |
           | macos-arm64 | ARM64 macOS (Apple Silicon) |
+          | android-arm64-v8a | Android ARM64 (NDK r29, API 23+) |
+          | android-x86_64 | Android x86_64 (NDK r29, API 23+) |
+          | android-armeabi-v7a | Android ARMv7 (NDK r29, API 23+) |
+          | android-x86 | Android x86 (NDK r29, API 23+) |
 
           Each platform zip contains:
           - `lib/` - Compiled library files (.lib, .dll, .so)
           - `include/` - Header files
+
+          Android zip notes:
+          - `lib/<abi>/` 包含 4 个 .so:`libncm_music_api.so`、`libengine.so`、`libqjs.so`、`libcurl.so`
+          - `libcurl.so` 是 Android NDK 官方 prefab 包 (com.android.ndk.thirdparty:curl:7.85.0-beta-1),运行时由 plugin Gradle prefab 供应,这里一并打包是为了 zip 的"开箱即用"语义
+          - libcurl.so 是从 https://dl.google.com/android/maven2/com/android/ndk/thirdparty/curl/7.85.0-beta-1/curl-7.85.0-beta-1.aar 解出来的
           EOF
           cat release_body.md
 
