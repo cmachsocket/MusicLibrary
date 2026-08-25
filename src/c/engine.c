@@ -9,7 +9,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <inttypes.h>
-#include "tinycthread.h"
+#include <threads.h>
 #include "engine.h"
 
 // 声明在 http.c 中实现的模块初始化函数

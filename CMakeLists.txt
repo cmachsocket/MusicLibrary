@@ -4,9 +4,13 @@ project(MusicLibrary VERSION 1.0.0 LANGUAGES C)
 # ========== 子库构建开关 ==========
 # 默认全开,保持原有 Windows / Linux 桌面构建行为不变。
 # 嵌入式平台(如 Android NDK)只引入需要的部分,在父 CMakeLists 里 set 成 OFF 即可。
+# 2026-08-25: Android wrapper (scripts/CMakeLists.txt) 默认 ON,所有子库都 build;
+# consumer (NeteaseCloudMusic_PythonSDK plugin) 决定要不要 DynamicLibrary.open(libkugou_*)。
 option(MUSICLIBRARY_BUILD_ENGINE "Build engine shared library" ON)
 option(MUSICLIBRARY_BUILD_KUGOU "Build kugou_music_api shared library" ON)
 option(MUSICLIBRARY_BUILD_NCM   "Build ncm_music_api shared library"   ON)
+
+add_definitions(-D_TTHREAD_USE_PTHREAD)
 
 if(WIN32)
     if(MSVC)
@@ -75,7 +79,7 @@ set(NCM_JS_VERSION "${NCM_JS_VERSION_MAJOR}.${NCM_JS_VERSION_MINOR}.${NCM_JS_VER
 set(ENGINE_LIB_SOURCES
     ${CMAKE_SOURCE_DIR}/src/c/engine.c
     ${CMAKE_SOURCE_DIR}/src/c/http.c
-    ${CMAKE_SOURCE_DIR}/src/c/tinycthread.c
+    #${CMAKE_SOURCE_DIR}/src/c/tinycthread.c
 )
 
 # ========== INTERFACE 库 - 存放公共配置 ==========

@@ -10,7 +10,7 @@
       "name": "windows-x64-vcpkg",
       "displayName": "Windows x64 with vcpkg",
       "description": "Configure using vcpkg toolchain and x64-windows triplet",
-      "generator": "Visual Studio 17 2022",
+      "generator": "Visual Studio 18 2026",
       "binaryDir": "${sourceDir}/build/windows/x64/${presetName}",
       "cacheVariables": {
         "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
@@ -21,7 +21,7 @@
       "name": "windows-x86-vcpkg",
       "displayName": "Windows x86 with vcpkg",
       "description": "Configure using vcpkg toolchain and x86-windows triplet",
-      "generator": "Visual Studio 17 2022",
+      "generator": "Visual Studio 18 2026",
       "architecture": "Win32",
       "binaryDir": "${sourceDir}/build/windows/x86/${presetName}",
       "cacheVariables": {
