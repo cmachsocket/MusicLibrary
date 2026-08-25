@@ -12,6 +12,13 @@
 #include <stdlib.h>
 #include <ctype.h>
 
+#ifdef __ANDROID__
+#include <android/log.h>
+#define HTTP_LOG_TAG "flutter_netease_http"
+#else
+#define HTTP_LOG_TAG "flutter_netease_http"
+#endif
+
 #ifdef USE_LIBUV
 uv_loop_t *loop;
 #endif
@@ -602,10 +609,28 @@ static void curl_main(http_ctx_t *hctx)
     curl_easy_setopt(curl, CURLOPT_HEADERDATA, hctx);
     // curl_easy_setopt(curl, CURLOPT_VERBOSE, 1L);  // 启用调试输出
 
+#ifdef __ANDROID__
+    __android_log_print(ANDROID_LOG_INFO, HTTP_LOG_TAG, "[REQ] url=%s", hctx->url ? hctx->url : "(null)");
+    for (struct curl_slist *h = hctx->req_headers; h; h = h->next)
+    {
+      __android_log_print(ANDROID_LOG_INFO, HTTP_LOG_TAG, "[REQ] header: %s", h->data ? h->data : "(null)");
+    }
+#else
+    fprintf(stderr, "[REQ] url=%s\n", hctx->url ? hctx->url : "(null)");
+    for (struct curl_slist *h = hctx->req_headers; h; h = h->next)
+    {
+      fprintf(stderr, "[REQ] header: %s\n", h->data ? h->data : "(null)");
+    }
+#endif
+
     res = curl_easy_perform(curl);
     if (res != CURLE_OK)
     {
-      fprintf(stderr, "%s\n", curl_easy_strerror(res));
+#ifdef __ANDROID__
+      __android_log_print(ANDROID_LOG_ERROR, HTTP_LOG_TAG, "[CURL-ERR] code=%d (%s) url=%s", res, curl_easy_strerror(res), hctx->url ? hctx->url : "(null)");
+#else
+      fprintf(stderr, "[CURL-ERR] code=%d (%s) url=%s\n", res, curl_easy_strerror(res), hctx->url ? hctx->url : "(null)");
+#endif
     }
 
     // 获取 HTTP 状态码
