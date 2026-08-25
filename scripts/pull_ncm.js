@@ -1,6 +1,6 @@
 // NCM_API_VERSION 指定要拉取的版本
-const NCM_API_VERSION = "4.29.0";
-const TGZ_NAME = `NeteaseCloudMusicApi-${NCM_API_VERSION}.tgz`;
+const NCM_API_VERSION = "4.40.1";
+const TGZ_NAME = `neteasecloudmusicapienhanced-api-${NCM_API_VERSION}.tgz`;
 const API_DIR = "NeteaseCloudMusicApi";
 const PACKAGE_DIR = `${API_DIR}/package`;
 const path = require("path");
@@ -9,12 +9,11 @@ const { execSync } = require("child_process");
 const fs = require("fs");
 
 // 1. 下载tgz包
-console.log(`[pull_ncm] 下载 NeteaseCloudMusicApi@${NCM_API_VERSION} ...`);
-execSync(`npm pack NeteaseCloudMusicApi@${NCM_API_VERSION}`, {
+console.log(`[pull_ncm] 下载 @neteasecloudmusicapienhanced/api@${NCM_API_VERSION} ...`);
+execSync(`npm pack @neteasecloudmusicapienhanced/api@${NCM_API_VERSION}`, {
   stdio: "inherit",
   cwd: PROJECT_ROOT,
 });
-
 // 2. 解压到根目录NeteaseCloudMusicApi
 const tgzPath = path.join(PROJECT_ROOT, TGZ_NAME);
 const apiDirPath = path.join(PROJECT_ROOT, API_DIR);

@@ -713,7 +713,6 @@ NCMAPI *create_ncm_api(){
     api->artist_detail = artist_detail;
     api->artist_desc = artist_desc;
     api->artist_album = artist_album;
-    api->api = api;
     api->album_sublist = album_sublist;
     api->album_sub = album_sub;
     api->album_songsaleboard = album_songsaleboard;
