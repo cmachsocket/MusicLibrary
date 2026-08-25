@@ -533,15 +533,10 @@ static void curl_main(http_ctx_t *hctx)
     curl_easy_setopt(curl, CURLOPT_DEFAULT_PROTOCOL, "https");
     // curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 0L);
     // curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 0L);
-#ifdef __ANDROID__
-    // Android 上 libcurl 没有系统 CA bundle，会导致 CURLE_PEER_FAILED_VERIFICATION(60)。
-    // 调试阶段先关闭证书校验；正式发布应通过 CURLOPT_CAINFO 内置 CA bundle。
-    curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 0L);
-    curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 0L);
-#else
+    // 2026-08-25 迁移 vvb2060/curl-android 后，Android 使用 BoringSSL，
+    // 默认走系统内置 CA 证书存储。所有平台统一开启严格证书校验。
     curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 1L);
     curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 2L);
-#endif
     // 自动解压 gzip / deflate / br
     curl_easy_setopt(curl, CURLOPT_ACCEPT_ENCODING, "");
     // 超时（0 表示不限）

@@ -17,10 +17,10 @@
 // build 出来的 .so 直接 copy 到 src/dart/android/src/main/jniLibs/<abi>/ 下,
 // AGP 自动打包进 APK。
 //
-// ⚠️ libcurl: 走 Android NDK 官方 prefab 包 (com.android.ndk.thirdparty:curl),
-// 第一次 build 时自动从 maven.google.com 下载并解包到 scripts/android-prefab/。
-// 运行时:plugin 那边 (Gradle) 也依赖同样的 prefab curl 包,
-// 编译期 .so 用 prefab/libcurl.so 链接占位,运行时 APK 里 prefab 提供真版。
+// ⚠️ libcurl: 走 vvb2060/curl-android (io.github.vvb2060.ndk:curl, Maven Central),
+// 第一次 build 时自动从 repo1.maven.org 下载并解包到 scripts/android-prefab/。
+// 静态链接进 libengine.so (libcurl_static.a + BoringSSL/nghttp2/ngtcp2 整套),
+// APK 不再需要 libcurl.so / libssl.so / libcrypto.so。
 //
 // ⚠️ kugou: 2026-08-25 改为 ON。主 CMakeLists 里 kugou_music_api 是无条件 add_library,
 //   "关掉" 只能从 host app 側不 dlopen,节省不了 APK 体积 (都进 jniLibs)。
@@ -84,7 +84,7 @@ execSync(`node "${path.join(PROJECT_ROOT, "scripts", "android-prefab", "fetch.js
 });
 
 const PREFAB_ROOT = path.join(PROJECT_ROOT, "scripts", "android-prefab", "prefab");
-const CURL_INCLUDE_DIR = path.join(PREFAB_ROOT, "modules", "curl", "include");
+const CURL_INCLUDE_DIR = path.join(PREFAB_ROOT, "modules", "curl_static", "include");
 if (!fs.existsSync(path.join(CURL_INCLUDE_DIR, "curl", "curl.h"))) {
   console.error(`❌ prefab curl headers 没准备好: ${CURL_INCLUDE_DIR}`);
   process.exit(1);
@@ -102,11 +102,53 @@ for (const abi of abis) {
   console.log(`[build-android] ABI: ${abi}`);
   console.log("============================================================");
 
-  const curlLib = path.join(PREFAB_ROOT, "modules", "curl", "libs", `android.${abi}`, "libcurl.so");
-  if (!fs.existsSync(curlLib)) {
-    console.error(`❌ 找不到 prefab libcurl.so for ${abi}: ${curlLib}`);
-    console.error(`   (支持的 ABI: ${SUPPORTED_ABIS.join(", ")})`);
+  // NDK sysroot 里 libc++_static.a 的目录名 (Android NDK 约定):
+  //   arm64-v8a        → aarch64-linux-android
+  //   armeabi-v7a      → arm-linux-androideabi
+  //   x86              → i686-linux-android
+  //   x86_64           → x86_64-linux-android
+  // 静态链 BoringSSL 时需要 (libssl 内部用了 std::sort / operator delete 等 C++ 符号),
+  // engine 是 C-only target,toolchain 不会自动追加;build-android.js 显式传路径给 CMake。
+  const NDK_SYSROOT = path.join(ANDROID_NDK_HOME, "toolchains", "llvm", "prebuilt", "linux-x86_64", "sysroot");
+  const NDK_TRIPLE_DIR = {
+    "arm64-v8a": "aarch64-linux-android",
+    "armeabi-v7a": "arm-linux-androideabi",
+    "x86": "i686-linux-android",
+    "x86_64": "x86_64-linux-android",
+  }[abi];
+  if (!NDK_TRIPLE_DIR) {
+    console.error(`❌ 未知 ABI: ${abi} (libc++_static.a 路径映射缺失)`);
     process.exit(1);
+  }
+  const cxxStaticLib = path.join(NDK_SYSROOT, "usr", "lib", NDK_TRIPLE_DIR, "libc++_static.a");
+  if (!fs.existsSync(cxxStaticLib)) {
+    console.error(`❌ 找不到 NDK libc++_static.a: ${cxxStaticLib}`);
+    process.exit(1);
+  }
+  // BoringSSL 的 operator delete(void*, size_t) 由 src/c/android-stubs/cxx_stubs.c 提供。
+  // 为什么不从 libc.a 抽 new.o:x86_64 libc.a 里的 libc_init_common.o / sse2-memmove-slm.o
+  // 等是 non-PIC (用了 R_X86_64_PC32 + 绝对符号 __x86_shared_cache_size),group 循环解析
+  // 会把它们也拉进来触发 PIC 重定位错误。直接 stub 最简单。
+
+  // 静态链接 vvb2060/curl-android：顺序必须是 curl → nghttp2/3 → ngtcp2 → boringssl
+  const staticLibSpecs = [
+    ["curl_static", "libcurl_static.a"],
+    ["nghttp2_static", "libnghttp2_static.a"],
+    ["nghttp3_static", "libnghttp3_static.a"],
+    ["ngtcp2_static", "libngtcp2_static.a"],
+    ["ngtcp2_crypto_static", "libngtcp2_crypto_static.a"],
+    ["ssl_static", "libssl_static.a"],
+    ["crypto_static", "libcrypto_static.a"],
+  ];
+  const staticLibs = [];
+  for (const [module, fileName] of staticLibSpecs) {
+    const libPath = path.join(PREFAB_ROOT, "modules", module, "libs", `android.${abi}`, fileName);
+    if (!fs.existsSync(libPath)) {
+      console.error(`❌ 找不到 prefab ${fileName} for ${abi}: ${libPath}`);
+      console.error(`   (支持的 ABI: ${SUPPORTED_ABIS.join(", ")})`);
+      process.exit(1);
+    }
+    staticLibs.push(libPath);
   }
 
   const buildDir = path.join(PROJECT_ROOT, "build", "android", abi);
@@ -124,7 +166,8 @@ for (const abi of abis) {
       "-DCMAKE_BUILD_TYPE=Release",
       "-DBUILD_SHARED_LIBS=ON",
       `-DCURL_INCLUDE_DIR="${CURL_INCLUDE_DIR}"`,
-      `-DCURL_LIB="${curlLib}"`,
+      `-DCURL_STATIC_LIBS="${staticLibs.join(";")}"`,
+      `-DCXX_STATIC_LIB="${cxxStaticLib}"`,
     ].join(" "),
     { stdio: "inherit", cwd: PROJECT_ROOT },
   );
@@ -147,24 +190,8 @@ for (const abi of abis) {
   const quickjsLibDir = path.join(buildDir, "musiclibrary_build");
   copyAllSoFiles(quickjsLibDir, abiDist, /* maxDepth */ 3);
 
-  // 同时塞 prefab libcurl.so,让 plugin 直接 copy 整套 (覆盖 apk libs/<abi>/)
-  fs.copyFileSync(curlLib, path.join(abiDist, "libcurl.so"));
-  console.log(`  ${abi}/libcurl.so`);
-
-  // 2026-08-25: libcurl.so 运行时依赖 libssl.so / libcrypto.so (NDK prefab openssl 包),
-  // 必须跟 libcurl.so 一起进 APK jniLibs/。AGP prefab 在 plugin 没 native build 时
-  // 不会自动转写 .so 到 APK, 所以走预编译嵌入路径。
-  // prefab 拆 modules: ssl/ + crypto/。
-  const sslLib = path.join(PREFAB_ROOT, "modules", "ssl", "libs", `android.${abi}`, "libssl.so");
-  const cryptoLib = path.join(PREFAB_ROOT, "modules", "crypto", "libs", `android.${abi}`, "libcrypto.so");
-  for (const [name, p] of [["libssl.so", sslLib], ["libcrypto.so", cryptoLib]]) {
-    if (!fs.existsSync(p)) {
-      console.error(`❌ 找不到 prefab ${name} for ${abi}: ${p}`);
-      process.exit(1);
-    }
-    fs.copyFileSync(p, path.join(abiDist, name));
-    console.log(`  ${abi}/${name}`);
-  }
+  // 2026-08-25 迁移 vvb2060/curl-android 后，curl/BoringSSL 已静态链接进 libengine.so，
+  // 不需要再单独拷贝 libcurl.so / libssl.so / libcrypto.so。
 }
 
 // ---------- 完成 ----------

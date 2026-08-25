@@ -25,19 +25,23 @@ const path = require("path");
 const ROOT = path.resolve(__dirname);
 
 // ===== 配置:prefab 包列表 =====
+// 2026-08-25 迁移到 vvb2060/curl-android:
+//   - curl 8.18.0 静态库 (libcurl_static.a),BoringSSL TLS,默认系统 CA
+//   - boringssl 20251124 静态库 (libssl_static.a + libcrypto_static.a)
+//   - 只保留 prefab/ 目录;headers 与 .a 由 build-android.js / scripts/CMakeLists.txt 消费
 const PACKAGES = [
   {
     name: "curl",
-    version: "7.85.0-beta-1",
-    markerLib: "libcurl.so",
-    // extractOnly = 只解 prefab/ 子目录;headers 后续会被 build-android.js 用到
+    moduleName: "curl_static",
+    version: "8.18.0",
+    markerLib: "libcurl_static.a",
     extractOnly: "prefab/*",
   },
   {
-    name: "openssl",
-    version: "1.1.1l-beta-1",
-    markerLib: "libssl.so",
-    // 解 prefab/ (跟 curl 同结构)
+    name: "boringssl",
+    moduleName: "ssl_static",
+    version: "20251124",
+    markerLib: "libssl_static.a",
     extractOnly: "prefab/*",
   },
 ];
@@ -52,7 +56,7 @@ function fetchOne(pkg) {
   const marker = path.join(
     PREFAB_DIR,
     "modules",
-    pkg.name,
+    pkg.moduleName || pkg.name,
     "libs",
     "android.arm64-v8a",
     pkg.markerLib,
@@ -62,7 +66,7 @@ function fetchOne(pkg) {
   }
 
   const aarName = `${pkg.name}-${pkg.version}.aar`;
-  const url = `https://dl.google.com/android/maven2/com/android/ndk/thirdparty/${pkg.name}/${pkg.version}/${aarName}`;
+  const url = `https://repo1.maven.org/maven2/io/github/vvb2060/ndk/${pkg.name}/${pkg.version}/${aarName}`;
   const cache = path.join(ROOT, aarName);
 
   console.log(`[prefab:${pkg.name}] downloading ${url}`);
