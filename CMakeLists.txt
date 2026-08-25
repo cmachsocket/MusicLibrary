@@ -91,6 +91,11 @@ target_include_directories(engine_config INTERFACE
 )
 target_link_libraries(engine_config INTERFACE qjs qjs-libc)
 
+# Android 上给 console.log 用的 __android_log_print 提供 liblog
+if(ANDROID)
+    target_link_libraries(engine_config INTERFACE log)
+endif()
+
 # ========== 平台相关依赖 ==========
 # 2026-08-25 Android NDK 适配:
 #   - Android 上没装 pkg-config / .pc 文件,不能走 pkg_check_modules。

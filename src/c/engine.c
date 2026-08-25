@@ -12,6 +12,13 @@
 #include <threads.h>
 #include "engine.h"
 
+#ifdef __ANDROID__
+#include <android/log.h>
+#define JS_LOG_TAG "flutter_netease_js"
+#else
+#define JS_LOG_TAG "flutter_netease_js"
+#endif
+
 // 声明在 http.c 中实现的模块初始化函数
 JSModuleDef *js_init_module_http(JSContext *ctx, const char *module_name);
 
@@ -321,6 +328,31 @@ char *eval_js_with_promise_result(JSContext *ctx, char *code, char *filename){
     // return NULL;
 }
 
+static JSValue js_console_log(JSContext *ctx, JSValueConst this_val, int argc, JSValueConst *argv)
+{
+    int i;
+    for (i = 0; i < argc; i++)
+    {
+        const char *s = JS_ToCString(ctx, argv[i]);
+        if (!s)
+            continue;
+#ifdef __ANDROID__
+        __android_log_print(ANDROID_LOG_INFO, JS_LOG_TAG, "%s", s);
+#else
+        printf("%s", s);
+        if (i != argc - 1)
+            printf(" ");
+#endif
+        JS_FreeCString(ctx, s);
+    }
+#ifdef __ANDROID__
+    __android_log_print(ANDROID_LOG_INFO, JS_LOG_TAG, "\n");
+#else
+    printf("\n");
+#endif
+    return JS_UNDEFINED;
+}
+
 static JSContext *JS_GetContext(JSRuntime *rt)
 {
     JSContext *ctx = JS_NewContext(rt);
@@ -331,6 +363,21 @@ static JSContext *JS_GetContext(JSRuntime *rt)
     // js_init_module_std(ctx, "std");
     js_std_add_helpers(ctx, 0, NULL);
     js_init_module_http(ctx, "http");
+
+    // 给 quickjs 注入 console.log/error，直接走 Android log / stdout，
+    // 避免依赖被注释掉的 std 模块。
+    {
+        JSValue console_obj = JS_NewObject(ctx);
+        JS_SetPropertyStr(
+            ctx, console_obj, "log",
+            JS_NewCFunction(ctx, js_console_log, "log", 1));
+        JS_SetPropertyStr(
+            ctx, console_obj, "error",
+            JS_NewCFunction(ctx, js_console_log, "error", 1));
+        JSValue global = JS_GetGlobalObject(ctx);
+        JS_SetPropertyStr(ctx, global, "console", console_obj);
+        JS_FreeValue(ctx, global);
+    }
 
     // const char *str =
     //     "import * as std from 'std'\n"
