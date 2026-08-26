@@ -30,11 +30,8 @@ elseif(EXISTS("${CMAKE_CURRENT_SOURCE_DIR}/vcpkg/scripts/buildsystems/vcpkg.cmak
 endif()
 
 # ========== 编译选项 ==========
-if(CMAKE_C_STANDARD)
-    set(CMAKE_C_STANDARD 11)
-    set(CMAKE_C_STANDARD_REQUIRED ON)
-endif()
-
+set(CMAKE_C_STANDARD 11)
+set(CMAKE_C_STANDARD_REQUIRED ON)
 # ========== QuickJS ==========
 # set(QJS_BUILD_LIBC ON)
 # set(BUILD_SHARED_LIBS ON)
