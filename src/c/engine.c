@@ -1,7 +1,3 @@
-#ifdef _WIN32
-#define __declspec(dllexport)
-#endif
-
 // #include "tool.h"
 #include "quickjs-libc.h"
 #include "quickjs.h"
