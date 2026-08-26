@@ -9,7 +9,19 @@
 #include <stdlib.h>
 #include <string.h>
 #include <inttypes.h>
+#ifdef __APPLE__
+#include <pthread.h>
+typedef pthread_mutex_t mtx_t;
+#define mtx_plain 0
+#define MTX_INITIALIZER PTHREAD_MUTEX_INITIALIZER
+#define mtx_init(m, type) pthread_mutex_init((m), NULL)
+#define mtx_lock(m) pthread_mutex_lock((m))
+#define mtx_unlock(m) pthread_mutex_unlock((m))
+#define mtx_destroy(m) pthread_mutex_destroy((m))
+#else
 #include <threads.h>
+#define MTX_INITIALIZER {0}
+#endif
 #include "engine.h"
 
 #ifdef __ANDROID__
@@ -36,6 +48,7 @@ CtxList ctxList = {
     NULL,
     0,
     0,
+    MTX_INITIALIZER,
 };
 
 static void ctxList_init()

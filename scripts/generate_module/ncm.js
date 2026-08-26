@@ -80,11 +80,11 @@ function generateNcmImpl(modules) {
     ]),
     "",
     "NCMAPI *create_ncm_api(){",
-    "    NCMAPI *api = malloc(sizeof(NCMAPI));",
+    "    NCMAPI *ncm_api = malloc(sizeof(NCMAPI));",
     ...modules.flatMap((m) => [
-      `    api->${m.identifier} = ${m.identifier};`,
+      `    ncm_api->${m.identifier} = ${m.identifier};`,
     ]),
-    "    return api;",
+    "    return ncm_api;",
     "};",
   ];
 
