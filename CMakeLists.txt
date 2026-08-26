@@ -216,7 +216,65 @@ if(MUSICLIBRARY_BUILD_NCM)
         RUNTIME_OUTPUT_DIRECTORY ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}
     )
     target_include_directories(ncm_music_api PUBLIC
-        ${PROJECT_SOURCE_DIR}/src/include
+        ${PROJECT_SOURCE_DIR}/src/include)
+    target_compile_definitions(ncm_music_api PUBLIC NCM_MUSIC_API_EXPORTS)
+endif()
+
+
+# ========== 手动 host smoke test (不是 ctest test) ==========
+# 原始 executable 名字是 'test', 跟 CTest 的保留名冲突 (enable_testing() 后 'test' 是 CTest 内部用)。
+# 改名为 host_smoke_test, 跟 tests/NcmTests (GoogleTest, 由 MUSICLIBRARY_BUILD_TESTS 开启) 区分。
+add_executable(host_smoke_test ${CMAKE_SOURCE_DIR}/src/c/test.c)
+# if(WIN32)
+#     set_target_properties(host_smoke_test PROPERTIES
+#         ENABLE_EXPORTS OFF
+#         LINK_FLAGS "/NOENTRY /NODEFAULTLIB /NOIMPLIB"
+#     )
+# endif()
+target_include_directories(host_smoke_test PUBLIC
+    ${CMAKE_SOURCE_DIR}/src/include
+)
+target_link_libraries(host_smoke_test PRIVATE kugou_music_api_static ncm_music_api_static engine)
+
+
+# ========== 生成配置头文件 ==========
+configure_file(
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/include/kugou_music_api_version.h.in
+    ${CMAKE_BINARY_DIR}/kugou_music_api_version.h
+)
+
+configure_file(
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/include/ncm_music_api_version.h.in
+    ${CMAKE_BINARY_DIR}/ncm_music_api_version.h
+)
+
+# 复制相关文件到lib目录
+add_custom_command(TARGET kugou_music_api POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different
+        ${CMAKE_BINARY_DIR}/kugou_music_api_version.h
+        ${CMAKE_INCLUDE_OUTPUT_DIRECTORY}/kugou_music_api_version.h
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different
+        ${CMAKE_BINARY_DIR}/ncm_music_api_version.h
+        ${CMAKE_INCLUDE_OUTPUT_DIRECTORY}/ncm_music_api_version.h
+    COMMAND ${CMAKE_COMMAND} -E copy
+        ${CMAKE_SOURCE_DIR}/src/include/kugou_music_api.h
+        ${CMAKE_INCLUDE_OUTPUT_DIRECTORY}/kugou_music_api.h
+    COMMAND ${CMAKE_COMMAND} -E copy
+        ${CMAKE_SOURCE_DIR}/src/include/ncm_music_api.h
+        ${CMAKE_INCLUDE_OUTPUT_DIRECTORY}/ncm_music_api.h
+    COMMAND ${CMAKE_COMMAND} -E copy
+        ${CMAKE_SOURCE_DIR}/src/include/engine.h
+        ${CMAKE_INCLUDE_OUTPUT_DIRECTORY}/engine.h
+    COMMENT "Copying kugou_music_api.h engine.h to include directory"
+)
+
+# 删除exp文件
+if(WIN32)
+    add_custom_command(TARGET kugou_music_api POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E sleep 1
+        COMMAND if exist *.exp (del /q *.exp)
+        COMMENT "Clean up .exp files"
+        WORKING_DIRECTORY ${CMAKE_ARCHIVE_OUTPUT_DIRECTORY}
     )
 
 
@@ -227,4 +285,29 @@ if(MUSICLIBRARY_BUILD_NCM)
         )
         target_compile_definitions(ncm_music_api PUBLIC KUGOU_MUSIC_API_EXPORTS)
     endif()
+endif()
+
+# ========== 安装规则 ==========
+include(GNUInstallDirs)
+
+install(TARGETS kugou_music_api kugou_music_api_static
+    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+)
+
+install(DIRECTORY ${CMAKE_INCLUDE_OUTPUT_DIRECTORY}/src/include/
+    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+)
+
+# ========== Tests ==========
+# 只在显式打开 BUILD_TESTING 时才 build (默认 OFF,避免污染 release build)
+option(MUSICLIBRARY_BUILD_TESTS "Build host tests (console)" OFF)
+mark_as_advanced(MUSICLIBRARY_BUILD_TESTS)
+
+if(MUSICLIBRARY_BUILD_TESTS)
+    # 项目默认只 enable C (LANGUAGES C), 但 tests/ 需要 gTest (.cpp), 启用 CXX
+    enable_language(CXX)
+    enable_testing()
+    add_subdirectory(tests)
 endif()

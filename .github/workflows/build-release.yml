@@ -157,13 +157,13 @@ jobs:
 
       - name: Configure CMake (Windows)
         if: matrix.platform == 'windows'
-        run: cmake --preset ${{ matrix.preset }}
+        run: cmake --preset ${{ matrix.preset }} -DMUSICLIBRARY_BUILD_TESTS=ON
         env:
           VCPKG_ROOT: ${{ github.workspace }}/vcpkg
 
       - name: Configure CMake (Linux/macOS)
         if: matrix.platform != 'windows' && matrix.platform != 'android'
-        run: cmake --preset ${{ matrix.preset }}
+        run: cmake --preset ${{ matrix.preset }} -DMUSICLIBRARY_BUILD_TESTS=ON
 
       - name: Build qjsc target
         if: matrix.platform != 'android'
@@ -188,6 +188,17 @@ jobs:
         with:
           name: android-${{ matrix.architecture }}-release
           path: build/android/dist/${{ matrix.abi }}/*
+      - name: Build gTest (NcmTests)
+        # tests/CMakeLists.txt FetchContent 拉 googletest v1.18.0, 走 C++17.
+        # 各平台 vcpkg / apt / brew 需装 cmake / pkg-config (已有)
+        run: cmake --build --preset ${{ matrix.preset }}-Release --target NcmTests${{ matrix.platform == 'linux' && ' -j$(nproc)' || matrix.platform == 'macos' && ' -j$(sysctl -n hw.ncpu)' || '' }}
+
+      - name: Run gTest (ctest)
+        # tests/CMakeLists.txt 用 gtest_discover_tests, ctest 自动跑所有 GoogleTest TEST()
+        # NcmTests 需连网易云 API (playlist/detail / playlist/tracks / playlist/track/all),
+        # 如果运行时抽不到网易云 cookie token 某些接口会返回 undefined 但测试 PASSED。
+        working-directory: build/${{ matrix.platform }}/${{ matrix.architecture }}/${{ matrix.preset }}
+        run: ctest --output-on-failure -V
 
       - name: Upload artifacts
         if: matrix.platform != 'android'

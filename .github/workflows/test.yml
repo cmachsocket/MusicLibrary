@@ -1,0 +1,80 @@
+name: gTest
+
+# PR / push 到主分支时跑 gTest tests/test_get_playlist.cpp (GoogleTest)
+# 验证 quickjs runtime 跑 NCM 4.40.x 接口稳定性
+#   - /playlist/track/all (大 JSON, 验 GC)
+#   - /playlist/tracks (分页 100首)
+#   - /playlist/detail (元信息)
+#
+# 注: MusicLibrary CMake 主项目默认 MUSICLIBRARY_BUILD_TESTS=OFF, 这里显式打开。
+# tests/ 目录 FetchContent 拉 googletest v1.18.0, 需要 git submodule 递归拉。
+
+on:
+  pull_request:
+    branches: [main, pull_branch, pr_branch]
+  push:
+    branches: [main, pull_branch, pr_branch]
+  workflow_dispatch:
+
+jobs:
+  test:
+    timeout-minutes: 30
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "pnpm"
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            xz-utils \
+            cmake \
+            pkg-config \
+            libcurl4-openssl-dev
+
+      - name: Pull NCM project
+        run: node scripts/pull_ncm.js
+
+      - name: Install JS dependencies
+        run: pnpm install
+
+      - name: Build JavaScript bundle (NCM + Kugou)
+        run: npx webpack
+
+      - name: Configure CMake (tests on)
+        run: cmake --preset linux-x64-gcc -DMUSICLIBRARY_BUILD_TESTS=ON
+
+      - name: Build engine + NcmTests target
+        run: cmake --build --preset linux-x64-gcc-Release --target engine -j$(nproc)
+        # 先单独编 engine (quickjs + libcurl 静态库), NcmTests 链接 engine + ncm_music_api 时用
+
+      - name: Build NcmTests target
+        run: cmake --build --preset linux-x64-gcc-Release --target NcmTests -j$(nproc)
+
+      - name: Run gTest (NcmTests)
+        # tests/CMakeLists.txt 用 gtest_discover_tests, 跑 ctest 自动触发所有 GoogleTest TEST() 宏
+        working-directory: build/linux/x64/linux-x64-gcc
+        run: ctest --output-on-failure -V
+
+      - name: Upload test logs on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-logs
+          path: |
+            build/linux/x64/linux-x64-gcc-Release/Testing/Temporary/LastTest.log
+            build/linux/x64/linux-x64-gcc-Release/Testing/**/*.xml
