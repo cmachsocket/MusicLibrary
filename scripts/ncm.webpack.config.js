@@ -97,7 +97,12 @@ module.exports = {
 //   / Buffer.concat / Buffer.isBuffer / new Buffer(n) / .toString('hex'|'base64'|'utf8')
 //   / .subarray / 下标访问 / .length
 console.log('[SHIM] console.info shim injected');
-void 0 === globalThis.console.info && (globalThis.console.info = globalThis.console.log);
+var _qjsConsole = globalThis.console || (globalThis.console = {});
+'function' !== typeof _qjsConsole.log && (_qjsConsole.log = function () {});
+'function' !== typeof _qjsConsole.info && (_qjsConsole.info = _qjsConsole.log);
+'function' !== typeof _qjsConsole.warn && (_qjsConsole.warn = _qjsConsole.log);
+'function' !== typeof _qjsConsole.error && (_qjsConsole.error = _qjsConsole.log);
+'function' !== typeof _qjsConsole.debug && (_qjsConsole.debug = _qjsConsole.log);
 console.log('[SHIM] console.info =', typeof console.info);
 // quickjs runtime console 只有 console.log / console.warn / console.error,
 //   NCM 4.40.x util/logger.js 用 console.info (跟 console.log 等价), 需要 shim。
