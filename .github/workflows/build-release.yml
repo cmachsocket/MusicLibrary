@@ -197,8 +197,10 @@ jobs:
         # tests/CMakeLists.txt 用 gtest_discover_tests, ctest 自动跑所有 GoogleTest TEST()
         # NcmTests 需连网易云 API (playlist/detail / playlist/tracks / playlist/track/all),
         # 如果运行时抽不到网易云 cookie token 某些接口会返回 undefined 但测试 PASSED。
+        # VS / Xcode 是多配置生成器，ctest 必须 -C Release 才能发现测试；
+        # Linux 单配置 Makefile 不传 -C。
         working-directory: build/${{ matrix.platform }}/${{ matrix.architecture }}/${{ matrix.preset }}
-        run: ctest --output-on-failure -V
+        run: ctest --output-on-failure -V${{ matrix.platform != 'linux' && ' -C Release' || '' }}
 
       - name: Upload artifacts
         if: matrix.platform != 'android'
