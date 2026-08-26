@@ -174,14 +174,14 @@ typedef struct KugouAPI
   char *(*rank_audio_simple)(JSContext *ctx, const char *cookies, const char *params);
   char *(*privilege_lite)(JSContext *ctx, const char *cookies, const char *params, KugouProcessEnv *env);
   char *(*privilege_lite_simple)(JSContext *ctx, const char *cookies, const char *params);
-  char *(*playlist_track_all_new)(JSContext *ctx, const char *cookies, const char *params, KugouProcessEnv *env);
-  char *(*playlist_track_all_new_simple)(JSContext *ctx, const char *cookies, const char *params);
-  char *(*playlist_track_all)(JSContext *ctx, const char *cookies, const char *params, KugouProcessEnv *env);
-  char *(*playlist_track_all_simple)(JSContext *ctx, const char *cookies, const char *params);
   char *(*playlist_tracks_del)(JSContext *ctx, const char *cookies, const char *params, KugouProcessEnv *env);
   char *(*playlist_tracks_del_simple)(JSContext *ctx, const char *cookies, const char *params);
   char *(*playlist_tracks_add)(JSContext *ctx, const char *cookies, const char *params, KugouProcessEnv *env);
   char *(*playlist_tracks_add_simple)(JSContext *ctx, const char *cookies, const char *params);
+  char *(*playlist_track_all_new)(JSContext *ctx, const char *cookies, const char *params, KugouProcessEnv *env);
+  char *(*playlist_track_all_new_simple)(JSContext *ctx, const char *cookies, const char *params);
+  char *(*playlist_track_all)(JSContext *ctx, const char *cookies, const char *params, KugouProcessEnv *env);
+  char *(*playlist_track_all_simple)(JSContext *ctx, const char *cookies, const char *params);
   char *(*playlist_tags)(JSContext *ctx, const char *cookies, const char *params, KugouProcessEnv *env);
   char *(*playlist_tags_simple)(JSContext *ctx, const char *cookies, const char *params);
   char *(*playlist_similar)(JSContext *ctx, const char *cookies, const char *params, KugouProcessEnv *env);

@@ -43,7 +43,8 @@ function main() {
       chunk = chunk
         .replace(/\\/g, "\\\\") // 转义反斜杠
         .replace(/"/g, '\\"') // 转义双引号
-        .replace(/\r?\n/g, "\\n"); // 转义换行符
+        .replace(/\r/g, "\\r") // 转义单独的 CR (webpack 输出里部分 line 是 CR-only)
+        .replace(/\n/g, "\\n"); // 转义 LF
       chunks.push(chunk);
     }
 

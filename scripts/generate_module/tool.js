@@ -13,7 +13,7 @@ function getModules(modulesPath, rootDir, specificRoute = {}, skipModules=[]) {
     .reverse()
     .filter((fileName) => fileName.endsWith(".js") && !fileName.startsWith("_"))
     .map((fileName) => {
-      const identifier = fileName.split(".").shift();
+      const identifier = fileName.split(".").shift().replace(/-/g, "_");
       const route = parseRoute(fileName);
       const modulePath =
         rootDir + 
