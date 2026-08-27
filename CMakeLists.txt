@@ -224,17 +224,23 @@ endif()
 # ========== 手动 host smoke test (不是 ctest test) ==========
 # 原始 executable 名字是 'test', 跟 CTest 的保留名冲突 (enable_testing() 后 'test' 是 CTest 内部用)。
 # 改名为 host_smoke_test, 跟 tests/NcmTests (GoogleTest, 由 MUSICLIBRARY_BUILD_TESTS 开启) 区分。
-add_executable(host_smoke_test ${CMAKE_SOURCE_DIR}/src/c/test.c)
-# if(WIN32)
-#     set_target_properties(host_smoke_test PROPERTIES
-#         ENABLE_EXPORTS OFF
-#         LINK_FLAGS "/NOENTRY /NODEFAULTLIB /NOIMPLIB"
-#     )
-# endif()
-target_include_directories(host_smoke_test PUBLIC
-    ${CMAKE_SOURCE_DIR}/src/include
-)
-target_link_libraries(host_smoke_test PRIVATE kugou_music_api_static ncm_music_api_static engine)
+#
+# 2026-08-27: 加 if(NOT ANDROID) 保护 —— scripts/CMakeLists.txt (Android NDK wrapper) 通过
+# add_subdirectory() 加载本文件,host_smoke_test 在 Android 平台没意义 (且链接的是
+# STATIC _static 库,跟 SHARED 输出路径不兼容),让它只走 desktop / host build。
+if(NOT ANDROID)
+    add_executable(host_smoke_test ${CMAKE_CURRENT_SOURCE_DIR}/src/c/test.c)
+    # if(WIN32)
+    #     set_target_properties(host_smoke_test PROPERTIES
+    #         ENABLE_EXPORTS OFF
+    #         LINK_FLAGS "/NOENTRY /NODEFAULTLIB /NOIMPLIB"
+    #     )
+    # endif()
+    target_include_directories(host_smoke_test PUBLIC
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/include
+    )
+    target_link_libraries(host_smoke_test PRIVATE kugou_music_api_static ncm_music_api_static engine)
+endif()
 
 
 # ========== 生成配置头文件 ==========
@@ -257,13 +263,13 @@ add_custom_command(TARGET kugou_music_api POST_BUILD
         ${CMAKE_BINARY_DIR}/ncm_music_api_version.h
         ${CMAKE_INCLUDE_OUTPUT_DIRECTORY}/ncm_music_api_version.h
     COMMAND ${CMAKE_COMMAND} -E copy
-        ${CMAKE_SOURCE_DIR}/src/include/kugou_music_api.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/include/kugou_music_api.h
         ${CMAKE_INCLUDE_OUTPUT_DIRECTORY}/kugou_music_api.h
     COMMAND ${CMAKE_COMMAND} -E copy
-        ${CMAKE_SOURCE_DIR}/src/include/ncm_music_api.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/include/ncm_music_api.h
         ${CMAKE_INCLUDE_OUTPUT_DIRECTORY}/ncm_music_api.h
     COMMAND ${CMAKE_COMMAND} -E copy
-        ${CMAKE_SOURCE_DIR}/src/include/engine.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/include/engine.h
         ${CMAKE_INCLUDE_OUTPUT_DIRECTORY}/engine.h
     COMMENT "Copying kugou_music_api.h engine.h to include directory"
 )
