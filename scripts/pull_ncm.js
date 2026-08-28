@@ -222,4 +222,76 @@ if (fs.existsSync(cryptoFile)) {
   console.log("[pull_ncm] 已 stub util/crypto.js 中的 node crypto / zlib require");
 }
 
+// 7. 内联 china_ip_ranges.txt 数据进 util/index.js
+//    原因: NCM 4.40.x 的 util/index.js 在模块顶层执行 IIFE loadChinaIPRanges(),
+//    试图通过 fs.readFileSync('../data/china_ip_ranges.txt') 读 CIDR 段表。
+//    pull_ncm.js 阶段 6.5 已经把 fs/path stub 成空对象 (webpack 5 不 polyfill node 内置),
+//    运行时 fs.readFileSync 是 undefined → 抛 "not a function" → catch 块打 ERROR 日志
+//    "[ERROR] Failed to load china_ip_ranges.txt: not a function", 然后 fallback 到
+//    116.x 段生成 IP。功能 OK 但日志噪。
+//
+//    修法: 打包时把 china_ip_ranges.txt 内容 (64KB / 4146 行 CIDR) 直接 inline 进
+//    util/index.js 顶部, IIFE 改读内联常量, 跳过 fs.readFileSync。bundle 自包含,
+//    跨所有平台 (Linux/macOS/Android NDK/iOS/Windows) 行为一致。
+//
+//    graceful degradation: NCM 升级后 IIFE 代码变了 regex 不匹配, 不改文件, 留原始
+//    "not a function" 行为 (不影响 bundle 编译, 只是日志噪声回来)。
+function inlineChinaIpRanges(apiDirPath) {
+  const txtPath = path.join(apiDirPath, "data", "china_ip_ranges.txt");
+  const utilPath = path.join(apiDirPath, "util", "index.js");
+  if (!fs.existsSync(txtPath)) {
+    console.log("[pull_ncm] china_ip_ranges.txt 不存在, 跳过 inline");
+    return;
+  }
+  if (!fs.existsSync(utilPath)) {
+    console.log("[pull_ncm] util/index.js 不存在, 跳过 inline");
+    return;
+  }
+
+  // 读文件, 去 BOM (NCM 4.40.1 的 china_ip_ranges.txt 开头有 \ufeff)
+  let raw = fs.readFileSync(txtPath, "utf8");
+  if (raw.charCodeAt(0) === 0xfeff) raw = raw.slice(1);
+
+  // 转义为 backtick template literal: 文件里只有 . / \n / 数字 + \ufeff,
+  // 没有反引号 / 反斜杠 / $, 但保险起见还是 escape 一下
+  const escaped = raw
+    .replace(/\\/g, "\\\\")
+    .replace(/`/g, "\\`")
+    .replace(/\$\{/g, "\\${");
+
+  let content = fs.readFileSync(utilPath, "utf8");
+  const before = content;
+
+  // 1) 在 "const logger = require('./logger')" 后面插入内联常量
+  content = content.replace(
+    /^(const logger = require\(\s*['"]\.\/logger['"]\s*\)\s*)$/m,
+    `$1\n// 内联 china_ip_ranges.txt 数据 (pull_ncm.js patch)\nconst __chinaIpRangesData__ = \`${escaped}\`;`,
+  );
+
+  // 2) 改写 IIFE: 把 fs.readFileSync + path.join 那两行整体替换成读内联常量
+  //    原始两行:
+  //      const filePath = path.join(__dirname, '../data/china_ip_ranges.txt')
+  //      const content = fs.readFileSync(filePath, 'utf-8')
+  //    webpack bundle 里 fs/path 都已 stub 成 {}, 这两行任何一行执行都会抛 "not a function",
+  //    IIFE 走 catch 打 ERROR "Failed to load china_ip_ranges.txt: not a function"。
+  //    直接整段替换, 避免 catch 触发, ERROR 日志消失。
+  content = content.replace(
+    /(\s+)const filePath = path\.join\(__dirname,\s*['"]\.\.\/data\/china_ip_ranges\.txt['"]\)\s*\n\s+const content = fs\.readFileSync\(filePath,\s*['"]utf-8['"]\)/,
+    "$1// patched by pull_ncm.js: skip fs.readFileSync, use inlined CIDR data\n$1const content = __chinaIpRangesData__",
+  );
+
+  if (content !== before) {
+    fs.writeFileSync(utilPath, content);
+    const inlineBytes = escaped.length;
+    console.log(
+      `[pull_ncm] 已内联 china_ip_ranges.txt (${inlineBytes} bytes) 进 util/index.js`,
+    );
+  } else {
+    console.log(
+      "[pull_ncm] util/index.js 的 IIFE 形态不匹配 (NCM 版本变了?), 跳过 inline patch",
+    );
+  }
+}
+inlineChinaIpRanges(apiDirPath);
+
 console.log("[pull_ncm] 完成！");

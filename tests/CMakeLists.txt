@@ -18,7 +18,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # -------- 添加测试可执行文件 --------
-add_executable(NcmTests test_ncm_life_cycle.cpp test_get_playlist.cpp)
+add_executable(NcmTests test_ncm_life_cycle.cpp test_get_playlist.cpp test_china_ip_ranges_inline.cpp)
 # -------- Windows x86: 修复 0xc000007b (STATUS_INVALID_IMAGE_FORMAT) --------
 # 根因：x86 (Win32) 是交叉编译（Hostx64/x86/cl.exe）。
 # vcpkg 的 applocal.ps1 会把 x64 的 MSVC runtime 复制到 32 位 NcmTests.exe 旁，
