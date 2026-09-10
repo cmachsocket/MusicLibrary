@@ -128,7 +128,12 @@ jobs:
         if: matrix.platform == 'android'
         run: |
           set -euo pipefail
-          yes | sdkmanager --licenses > /dev/null
+          # `yes | cmd` 会因 cmd 早关 stdin 让 yes 收到 SIGPIPE 退 141;
+          # set -e + pipefail 会让 step fail。改用 printf 输出有限次 y:
+          # printf 写完自行 exit 0,不依赖 cmd 继续读 stdin,不会触发 SIGPIPE。
+          # cmdline-tools 12 sdkmanager 接受 license 一般 5~10 次 y 就够,
+          # 这里写 20 次保险。
+          printf 'y\n%.0s' $(seq 1 20) | sdkmanager --licenses > /dev/null
           sdkmanager --install \
             "ndk;29.0.14206865" \
             "cmake;3.22.1" \
