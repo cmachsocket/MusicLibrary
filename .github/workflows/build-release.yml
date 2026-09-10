@@ -106,6 +106,17 @@ jobs:
 
       # 2026-08-25: Android job 跳过 JS bundle / vcpkg / preset 那一套,
       # 直接装 NDK + cmake + ninja 走 scripts/build-android.sh。
+      # 2026-09: setup-android@v3 默认 cmdline-tools-version '11076708' 装的是 12.0,
+      # 需要 Java 21+ (class file 65.0);GitHub runner 默认 Java 是 11 (上限 class file 55.0),
+      # 直接装会 LinkageError。先 setup-java@21,让 setup-android 后续的 sdkmanager 用
+      # Java 21 跑,免去 cmdline-tools 版本与 Java 错位的反复折腾。
+      - name: Setup Java 21 (for sdkmanager)
+        if: matrix.platform == 'android'
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
       - name: Install Android NDK + build tools (Android)
         if: matrix.platform == 'android'
         uses: android-actions/setup-android@v3
