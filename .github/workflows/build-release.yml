@@ -207,6 +207,9 @@ jobs:
       - name: Build gTest (NcmTests)
         # tests/CMakeLists.txt FetchContent 拉 googletest v1.18.0, 走 C++17.
         # 各平台 vcpkg / apt / brew 需装 cmake / pkg-config (已有)
+        # Android matrix entry 没 preset 字段 (走 scripts/build-android.js 独立流水线),
+        # 跳过这条 step。
+        if: matrix.platform != 'android'
         run: cmake --build --preset ${{ matrix.preset }}-Release --target NcmTests${{ matrix.platform == 'linux' && ' -j$(nproc)' || matrix.platform == 'macos' && ' -j$(sysctl -n hw.ncpu)' || '' }}
 
       - name: Run gTest (ctest)
@@ -215,6 +218,9 @@ jobs:
         # 如果运行时抽不到网易云 cookie token 某些接口会返回 undefined 但测试 PASSED。
         # VS / Xcode 是多配置生成器，ctest 必须 -C Release 才能发现测试；
         # Linux 单配置 Makefile 不传 -C。
+        # Android matrix entry 走 scripts/build-android.js 独立流水线, 没有
+        # preset 输出目录, 跳过。
+        if: matrix.platform != 'android'
         working-directory: build/${{ matrix.platform }}/${{ matrix.architecture }}/${{ matrix.preset }}
         run: ctest --output-on-failure -V${{ matrix.platform != 'linux' && ' -C Release' || '' }}
 
